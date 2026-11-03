@@ -80,6 +80,25 @@
   .actions { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; }
   .notice.locked { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
   .notice.locked form { margin: 0; }
+  /* ⑤ 발송: 이메일 초안 제목 줄 오른쪽 막대, 정리본 아래 이력 카드, 확인 화면 */
+  /* 오른쪽 제목 줄에 버튼이 있어 더 높다. 두 제목 줄 높이를 같게 해 아래 흰 상자의 위 끝을 맞춘다 */
+  .pane-title { flex-wrap: wrap; min-height: 36px; align-items: center; }
+  .pane-title .send { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; font-weight: 400; }
+  .pane-title .send form { display: inline; margin: 0; }
+  a.button { display: inline-block; font-size: 13px; font-weight: 600; border-radius: 4px; padding: 6px 14px; text-decoration: none; border: 1px solid var(--gold); color: var(--gold); background: #fff; }
+  a.button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  a.button.primary:hover { background: #000; }
+  .pane-title .send button .addr { font-weight: 400; opacity: 0.8; margin-left: 4px; }
+  .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10; background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); font-size: 14px; font-weight: 600; transition: opacity 0.6s; }
+  .toast.hide { opacity: 0; pointer-events: none; }
+  .history { margin-top: 20px; }
+  td.send-status { white-space: nowrap; }
+  td.send-status form { display: inline; margin: 0 0 0 8px; }
+  td.send-status button { font-size: 12px; padding: 3px 10px; }
+  .failed { color: #94554d; }
+  .confirm th { width: 120px; }
+  .confirm .actions { justify-content: flex-start; gap: 12px; align-items: center; }
+  .confirm .preview { margin-top: 20px; }
   .notice { margin: 12px 0; padding: 10px 14px; background: #fcfbf9; border-left: 3px solid var(--gold); font-size: 13px; color: #444; }
 </style>
 <link rel="stylesheet" href="demo.css">

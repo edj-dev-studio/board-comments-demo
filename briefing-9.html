@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김도현 · 이사회 사전 코멘트</title>
+<style>
+  /* 톤: wine-paring 결과물(크림 배경·흰 카드·금색 제목·짙은 회색 버튼)에 맞춘다 */
+  :root {
+    --bg: #f8f5f0; --card: #fff; --ink: #2c2c2c; --text: #333; --sub: #666; --muted: #888;
+    --gold: #9a7c4f; --line: #eee; --cream: #f5f0e8; --nav-line: #e8e1d6;
+  }
+  body { margin: 0; font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+  nav { background: var(--card); border-bottom: 1px solid var(--nav-line); padding: 14px 28px; display: flex; gap: 28px; align-items: center; }
+  nav .brand { font-weight: 800; color: var(--ink); margin-right: 12px; }
+  nav a { color: var(--sub); text-decoration: none; font-weight: 600; font-size: 15px; padding-bottom: 4px; }
+  nav a.on { color: var(--ink); border-bottom: 2px solid var(--gold); }
+  main { padding: 28px; }
+  a { color: var(--gold); }
+
+  .card { background: var(--card); border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); padding: 24px 28px; }
+  h2 { margin: 0 0 16px; color: var(--gold); font-size: 18px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+
+  button { font: inherit; font-size: 13px; font-weight: 600; border-radius: 4px; padding: 6px 14px; cursor: pointer; background: #fff; color: var(--gold); border: 1px solid var(--gold); }
+  button:hover { background: var(--cream); }
+  button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  button.primary:hover { background: #000; }
+  /* 포함은 옅은 초록, 제외는 옅은 붉은 기로 은은하게 나눈다 */
+  button.include { background: #f1f6f0; color: #3f6b3a; border-color: #b9cfb5; }
+  button.include:hover { background: #e4eee2; }
+  button.exclude { background: #fbf4f3; color: #94554d; border-color: #dcc0bc; }
+  button.exclude:hover { background: #f4e6e4; }
+  select { font: inherit; font-size: 14px; padding: 6px 10px; border: 1px solid #ddd3c4; border-radius: 4px; background: #fff; }
+
+  table.list { width: 100%; border-collapse: collapse; }
+  table.list th, table.list td { padding: 12px; text-align: left; border-bottom: 1px solid var(--line); font-size: 14px; }
+  table.list th { background: #f9f9f9; font-weight: 600; color: #555; }
+  table.list td a { color: var(--ink); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--gold); }
+  table.list .num { text-align: right; }
+  .muted { color: var(--muted); }
+  .filter { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; font-size: 14px; color: var(--sub); }
+  .filter label { display: flex; gap: 10px; align-items: center; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .badge.draft { background: #eee; color: #555; }
+  .badge.approved { background: #e6f0e6; color: #2d6a2d; }
+  .badge.sent { background: var(--ink); color: #fff; }
+  .badge.direct { background: #e6f0e6; color: #2d6a2d; }
+  .badge.ambiguous { background: #f5e6c0; color: #7a5c00; }
+
+  table.list tr.on td { background: var(--cream); }
+  #detail { margin-top: 28px; scroll-margin-top: 16px; }
+  iframe.manual { width: 100%; height: 80vh; border: 0; display: block; }
+  .head { display: flex; flex-wrap: wrap; gap: 14px; align-items: baseline; margin-bottom: 18px; }
+  .head .close { margin-left: auto; }
+  .head a { text-decoration: none; font-size: 14px; }
+  .head .name { font-size: 22px; font-weight: 800; color: var(--ink); }
+  .head .meta { font-size: 13px; color: var(--sub); }
+  /* 발언 목록과 이메일 초안. 두 흰 상자는 위·아래 끝을 맞춘다 (긴 쪽에 맞춰 짧은 쪽이 늘어난다) */
+  .panes { display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; }
+  .left, .right { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; }  /* 두 상자는 같은 폭으로 함께 늘어난다 */
+  .box { flex: 1; }
+  .pane-title { display: flex; gap: 14px; align-items: baseline; margin: 0 0 10px; font-size: 16px; color: var(--ink); }
+  .pane-title a { font-size: 14px; font-weight: 600; text-decoration: none; }
+  .preview { padding: 0; overflow: hidden; }
+  .preview .notice { margin: 16px 32px 0; }
+  .preview iframe { width: 100%; height: 80vh; border: 0; display: block; }  /* 높이는 리포트를 읽은 뒤 내용에 맞춘다 */
+  .remarks h3 { font-size: 15px; color: var(--gold); margin: 20px 0 8px; }
+  .remarks ul { list-style: none; margin: 0; padding: 0; }
+  .remarks li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; display: flex; gap: 8px; align-items: flex-start; }
+  .remarks li .txt { flex: 1; }  /* 표시(직접·애매) 오른쪽 한 덩어리라 둘째 줄이 날짜와 같은 자리에서 시작한다 */
+  .remarks li .date { color: var(--muted); }
+  .remarks li .agenda { color: var(--muted); }
+  .remarks li .badge { margin-top: 1px; }
+  .remarks li button { font-size: 12px; padding: 3px 10px; }
+  s { color: #aaa; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 6px 0; }
+  .bar form, form.item { display: inline; margin: 0; }
+  .hint { font-size: 12px; color: var(--muted); }
+  .actions { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; }
+  .notice.locked { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+  .notice.locked form { margin: 0; }
+  /* ⑤ 발송: 이메일 초안 제목 줄 오른쪽 막대, 정리본 아래 이력 카드, 확인 화면 */
+  /* 오른쪽 제목 줄에 버튼이 있어 더 높다. 두 제목 줄 높이를 같게 해 아래 흰 상자의 위 끝을 맞춘다 */
+  .pane-title { flex-wrap: wrap; min-height: 36px; align-items: center; }
+  .pane-title .send { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; font-weight: 400; }
+  .pane-title .send form { display: inline; margin: 0; }
+  a.button { display: inline-block; font-size: 13px; font-weight: 600; border-radius: 4px; padding: 6px 14px; text-decoration: none; border: 1px solid var(--gold); color: var(--gold); background: #fff; }
+  a.button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  a.button.primary:hover { background: #000; }
+  .pane-title .send button .addr { font-weight: 400; opacity: 0.8; margin-left: 4px; }
+  .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10; background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); font-size: 14px; font-weight: 600; transition: opacity 0.6s; }
+  .toast.hide { opacity: 0; pointer-events: none; }
+  .history { margin-top: 20px; }
+  td.send-status { white-space: nowrap; }
+  td.send-status form { display: inline; margin: 0 0 0 8px; }
+  td.send-status button { font-size: 12px; padding: 3px 10px; }
+  .failed { color: #94554d; }
+  .confirm th { width: 120px; }
+  .confirm .actions { justify-content: flex-start; gap: 12px; align-items: center; }
+  .confirm .preview { margin-top: 20px; }
+  .notice { margin: 12px 0; padding: 10px 14px; background: #fcfbf9; border-left: 3px solid var(--gold); font-size: 13px; color: #444; }
+</style>
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+<nav>
+  <span class="brand">이사회 사전 코멘트</span>
+  <a href="index.html" class="on">정리본</a>
+  <a href="recipients.html">수신처</a>
+  <a href="manual.html">메뉴얼</a>
+</nav>
+<div class="demo-banner">데모 화면입니다. 가상 샘플 데이터이며, 버튼을 눌러도 저장되지 않고 탭을 닫으면 처음 상태로 돌아갑니다. 메일 발송은 들어 있지 않습니다.</div>
+<main>
+
+<div class="card">
+<h2>정리본</h2>
+
+<form class="filter" method="get" action="index.html">
+  <label>대상 회의
+    <select name="meeting">
+      
+      
+      <option value="2026-11-12 사전보고회" selected>2026-11-12 사전보고회</option>
+      
+      
+      <option value="2026-11-05 이사회">2026-11-05 이사회</option>
+      
+    </select>
+  </label>
+  <button type="submit">보기</button>
+</form>
+<table class="list">
+  <thead>
+    <tr><th>이사</th><th>구분</th><th class="num">발언(포함 / 전체)</th><th>상태</th><th>이메일</th></tr>
+  </thead>
+  <tbody>
+    
+    <tr class="on">
+      
+      <td><a href="briefing-9.html#detail">김도현</a></td><td>대표이사</td>
+      <td class="num">13 / 13</td><td><span class="badge draft">검토 전</span></td>
+      <td>dohyun.kim@example.com</td>
+      
+      
+    </tr>
+    
+    <tr>
+      
+      <td><a href="briefing-10.html#detail">박재성</a></td><td>사내이사</td>
+      <td class="num">3 / 3</td><td><span class="badge draft">검토 전</span></td>
+      <td>jaesung.park@example.com</td>
+      
+      
+    </tr>
+    
+    <tr>
+      
+      <td><a href="briefing-11.html#detail">최윤석</a></td><td>기타비상무이사</td>
+      <td class="num">10 / 10</td><td><span class="badge draft">검토 전</span></td>
+      <td>yunseok.choi@example.com</td>
+      
+      
+    </tr>
+    
+    <tr>
+      
+      <td><a href="briefing-12.html#detail">이정민</a></td><td>사외이사</td>
+      <td class="num">38 / 38</td><td><span class="badge draft">검토 전</span></td>
+      <td>jungmin.lee@example.com</td>
+      
+      
+    </tr>
+    
+    <tr>
+      
+      <td><a href="briefing-13.html#detail">홍길도</a></td><td>사외이사</td>
+      <td class="num">7 / 7</td><td><span class="badge draft">검토 전</span></td>
+      <td>gildo.hong@example.com</td>
+      
+      
+    </tr>
+    
+    <tr>
+      
+      <td><a href="briefing-14.html#detail">서지원</a></td><td>사외이사</td>
+      <td class="num">9 / 21</td><td><span class="badge draft">검토 전</span></td>
+      <td>jiwon.seo@example.com</td>
+      
+      
+    </tr>
+    
+    <tr>
+      
+      <td><a href="briefing-15.html#detail">한상우</a></td><td>사외이사</td>
+      <td class="num">10 / 10</td><td><span class="badge draft">검토 전</span></td>
+      <td>sangwoo.han@example.com</td>
+      
+      
+    </tr>
+    
+    <tr>
+      
+      <td><a href="briefing-16.html#detail">오미경</a></td><td>사외이사</td>
+      <td class="num">13 / 13</td><td><span class="badge draft">검토 전</span></td>
+      <td>migyeong.oh@example.com</td>
+      
+      
+    </tr>
+    
+  </tbody>
+</table>
+
+</div>
+
+<section id="detail">
+<div class="head">
+  <span class="name">김도현</span>
+  <span class="meta">대표이사 · dohyun.kim@example.com</span>
+  <span class="badge draft">검토 전</span>
+  <a class="close" href="index.html">닫기 ✕</a>
+</div>
+
+<div class="panes">
+  <div class="left">
+  <h3 class="pane-title">발언 목록</h3>
+  <div class="card box remarks">
+    
+    <div class="bar">
+      <form method="post" action="/briefings/9/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
+      <form method="post" action="/briefings/9/include-ambiguous"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">애매 발언 모두 포함</button></form>
+      
+      <form method="post" action="/briefings/9/approve"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="primary" type="submit">승인</button></form>
+      
+    </div>
+    <div class="hint">제외해도 삭제되지 않으며 다시 포함할 수 있습니다</div>
+    
+    
+    <h3>1. 2027년 경영계획(안)</h3>
+    
+    <ul>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><span class="date">2023-12-14 이사회</span> <span class="agenda">2024년 경영계획(안)</span><br>2024년은 AI 인프라와 응용 서비스 양쪽에 균형 있게 투자하는 해로 …</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/228/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><span class="date">2024-01-18 이사회</span> <span class="agenda">AI 투자 포트폴리오 전략 보고</span><br>포트폴리오 전체 관점에서 인프라 비중을 30%까지 높이는 것이 중장기 방…</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/229/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><span class="date">2024-07-25 이사회</span> <span class="agenda">2024년 상반기 결산 보고</span><br>하반기는 회수 중심으로 실현 수익을 높이는 데 집중하겠음</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/230/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><span class="date">2024-12-12 이사회</span> <span class="agenda">2025년 경영계획(안)</span><br>2025년은 데이터센터 가동과 포트폴리오 회수를 동시에 이루는 해로 삼겠…</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/231/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><span class="date">2025-07-24 이사회</span> <span class="agenda">2025년 상반기 결산 보고</span><br>하반기에 메디뉴런 상장과 그린셀모빌리티 회수가 계획대로 되면 목표에 근접…</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/232/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 경영계획(안)</span><br>2026년은 데이터센터 안정화와 포트폴리오 회수의 결실을 거두는 해로 삼…</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/233/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><span class="date">2026-07-23 이사회</span> <span class="agenda">2026년 상반기 결산 보고</span><br>하반기는 2단계 착공과 메디뉴런 2차 매각을 차질 없이 진행하겠음</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/234/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><span class="date">2026-10-22 이사회</span> <span class="agenda">2027년 중장기 전략 방향 보고</span><br>앞으로 3년은 AI 인프라와 투자 사업이 서로 수요를 만들어 주는 구조를…</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/235/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+    </ul>
+    
+    
+    <h3>2. 메디뉴런 잔여 지분 처리(안)</h3>
+    
+    <ul>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><span class="date">2024-08-22 이사회</span> <span class="agenda">메디뉴런 추가 투자(안)</span><br>의료 AI는 장기 성장 분야로 포트폴리오 다변화 측면에서 의미가 있음</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/236/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><span class="date">2025-06-19 이사회</span> <span class="agenda">메디뉴런 IPO 준비 현황 보고</span><br>상장 후에도 일정 지분은 보유하며 성장 과실을 나누는 방향을 검토하겠음</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/237/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><span class="date">2025-07-24 이사회</span> <span class="agenda">2025년 상반기 결산 보고</span><br>하반기에 메디뉴런 상장과 그린셀모빌리티 회수가 계획대로 되면 목표에 근접…</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/238/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><span class="date">2026-04-16 이사회</span> <span class="agenda">메디뉴런 잔여 지분 처리 방향 보고</span><br>일부는 장기 보유해 의료 AI 분야와의 협업 관계를 유지하는 것도 고려하…</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/239/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><span class="date">2026-07-23 이사회</span> <span class="agenda">2026년 상반기 결산 보고</span><br>하반기는 2단계 착공과 메디뉴런 2차 매각을 차질 없이 진행하겠음</span>
+        
+        
+        <form class="item" method="post" action="/briefings/9/items/240/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        
+      </li>
+      
+    </ul>
+    
+    
+    <h3>3. 세온클라우드 운영위탁 계약 갱신(안)</h3>
+    
+    <p class="hint">관련 발언 없음</p>
+    
+    
+    
+    <div class="actions"><form method="post" action="/briefings/9/approve"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="primary" type="submit">승인</button></form></div>
+    
+  </div>
+  </div>
+  <div class="right">
+    <h3 class="pane-title">이메일 초안 <a href="report-9.pdf" target="_blank">PDF 보기 ↗</a>
+    </h3>
+    <div class="card box preview">
+    
+    <script>
+      // 미리보기 틀을 리포트 길이만큼 늘려 틀 안에 따로 스크롤이 생기지 않게 한다 (같은 출처라 높이를 읽을 수 있다)
+      function fitReport(frame) {
+        try {
+          frame.style.height = "0px";  // 틀보다 짧은 리포트도 제 길이를 재도록 먼저 줄인다
+          frame.style.height = frame.contentDocument.documentElement.scrollHeight + "px";
+        } catch (err) {}
+      }
+      window.addEventListener("resize", function () { fitReport(document.getElementById("report")); });
+    </script>
+    <iframe id="report" src="report-9.html" title="리포트 미리보기" onload="fitReport(this)"></iframe>
+    </div>
+  </div>
+</div>
+
+</section>
+
+</main>
+<script>
+  // 제외·포함·승인 뒤 다시 열린 화면에서 보던 자리를 이어서 보이게 한다 (저장소를 못 쓰면 맨 위부터)
+  document.addEventListener("submit", function (e) {
+    if (e.target.method === "post") { try { sessionStorage.setItem("scrollY", String(window.scrollY)); } catch (err) {} }
+  });
+  try {
+    var y = sessionStorage.getItem("scrollY");
+    if (y !== null) {
+      sessionStorage.removeItem("scrollY");
+      window.scrollTo(0, Number(y));
+      // 미리보기 틀이 늘어난 뒤에 한 번 더 맞춘다 (그 전에는 화면이 짧아 끝까지 못 내려갈 수 있다)
+      window.addEventListener("load", function () { window.scrollTo(0, Number(y)); });
+    }
+  } catch (err) {}
+</script>
+<script src="demo.js"></script>
+</body>
+</html>

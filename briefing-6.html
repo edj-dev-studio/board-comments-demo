@@ -80,6 +80,25 @@
   .actions { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; }
   .notice.locked { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
   .notice.locked form { margin: 0; }
+  /* ⑤ 발송: 이메일 초안 제목 줄 오른쪽 막대, 정리본 아래 이력 카드, 확인 화면 */
+  /* 오른쪽 제목 줄에 버튼이 있어 더 높다. 두 제목 줄 높이를 같게 해 아래 흰 상자의 위 끝을 맞춘다 */
+  .pane-title { flex-wrap: wrap; min-height: 36px; align-items: center; }
+  .pane-title .send { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; font-weight: 400; }
+  .pane-title .send form { display: inline; margin: 0; }
+  a.button { display: inline-block; font-size: 13px; font-weight: 600; border-radius: 4px; padding: 6px 14px; text-decoration: none; border: 1px solid var(--gold); color: var(--gold); background: #fff; }
+  a.button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  a.button.primary:hover { background: #000; }
+  .pane-title .send button .addr { font-weight: 400; opacity: 0.8; margin-left: 4px; }
+  .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10; background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); font-size: 14px; font-weight: 600; transition: opacity 0.6s; }
+  .toast.hide { opacity: 0; pointer-events: none; }
+  .history { margin-top: 20px; }
+  td.send-status { white-space: nowrap; }
+  td.send-status form { display: inline; margin: 0 0 0 8px; }
+  td.send-status button { font-size: 12px; padding: 3px 10px; }
+  .failed { color: #94554d; }
+  .confirm th { width: 120px; }
+  .confirm .actions { justify-content: flex-start; gap: 12px; align-items: center; }
+  .confirm .preview { margin-top: 20px; }
   .notice { margin: 12px 0; padding: 10px 14px; background: #fcfbf9; border-left: 3px solid var(--gold); font-size: 13px; color: #444; }
 </style>
 <link rel="stylesheet" href="demo.css">
@@ -103,6 +122,9 @@
     <select name="meeting">
       
       
+      <option value="2026-11-12 사전보고회">2026-11-12 사전보고회</option>
+      
+      
       <option value="2026-11-05 이사회" selected>2026-11-05 이사회</option>
       
     </select>
@@ -111,63 +133,79 @@
 </form>
 <table class="list">
   <thead>
-    <tr><th>이사</th><th>구분</th><th>이메일</th><th class="num">발언(포함 / 전체)</th><th class="num">애매 포함</th><th>상태</th></tr>
+    <tr><th>이사</th><th>구분</th><th class="num">발언(포함 / 전체)</th><th>상태</th><th>이메일</th></tr>
   </thead>
   <tbody>
     
     <tr>
       
-      <td><a href="briefing-1.html#detail">김도현</a></td><td>대표이사</td><td>dohyun.kim@example.com</td>
-      <td class="num">18 / 18</td><td class="num">8</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-1.html#detail">김도현</a></td><td>대표이사</td>
+      <td class="num">9 / 18</td><td><span class="badge draft">검토 전</span></td>
+      <td>dohyun.kim@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-2.html#detail">박재성</a></td><td>사내이사</td><td>jaesung.park@example.com</td>
-      <td class="num">11 / 11</td><td class="num">1</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-2.html#detail">박재성</a></td><td>사내이사</td>
+      <td class="num">6 / 11</td><td><span class="badge draft">검토 전</span></td>
+      <td>jaesung.park@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-3.html#detail">최윤석</a></td><td>기타비상무이사</td><td>yunseok.choi@example.com</td>
-      <td class="num">8 / 8</td><td class="num">5</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-3.html#detail">최윤석</a></td><td>기타비상무이사</td>
+      <td class="num">4 / 8</td><td><span class="badge draft">검토 전</span></td>
+      <td>yunseok.choi@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-4.html#detail">이정민</a></td><td>사외이사</td><td>jungmin.lee@example.com</td>
-      <td class="num">58 / 58</td><td class="num">22</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-4.html#detail">이정민</a></td><td>사외이사</td>
+      <td class="num">37 / 58</td><td><span class="badge draft">검토 전</span></td>
+      <td>jungmin.lee@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-5.html#detail">홍길도</a></td><td>사외이사</td><td>gildo.hong@example.com</td>
-      <td class="num">44 / 44</td><td class="num">18</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-5.html#detail">홍길도</a></td><td>사외이사</td>
+      <td class="num">44 / 44</td><td><span class="badge draft">검토 전</span></td>
+      <td>gildo.hong@example.com</td>
+      
       
     </tr>
     
     <tr class="on">
       
-      <td><a href="briefing-6.html#detail">서지원</a></td><td>사외이사</td><td>jiwon.seo@example.com</td>
-      <td class="num">36 / 36</td><td class="num">23</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-6.html#detail">서지원</a></td><td>사외이사</td>
+      <td class="num">16 / 36</td><td><span class="badge draft">검토 전</span></td>
+      <td>jiwon.seo@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-7.html#detail">한상우</a></td><td>사외이사</td><td>sangwoo.han@example.com</td>
-      <td class="num">36 / 36</td><td class="num">11</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-7.html#detail">한상우</a></td><td>사외이사</td>
+      <td class="num">36 / 36</td><td><span class="badge draft">검토 전</span></td>
+      <td>sangwoo.han@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-8.html#detail">오미경</a></td><td>사외이사</td><td>migyeong.oh@example.com</td>
-      <td class="num">16 / 16</td><td class="num">12</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-8.html#detail">오미경</a></td><td>사외이사</td>
+      <td class="num">16 / 16</td><td><span class="badge draft">검토 전</span></td>
+      <td>migyeong.oh@example.com</td>
+      
       
     </tr>
     
@@ -181,8 +219,9 @@
   <span class="name">서지원</span>
   <span class="meta">사외이사 · jiwon.seo@example.com</span>
   <span class="badge draft">검토 전</span>
-  <a class="close" href="index.html">닫기 ✕</a>
+  <a class="close" href="meeting-1.html">닫기 ✕</a>
 </div>
+
 <div class="panes">
   <div class="left">
   <h3 class="pane-title">발언 목록</h3>
@@ -204,19 +243,19 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2024-02-19 사전보고회</span> <span class="agenda">AI 데이터센터 사업 검토 보고</span><br>운영을 세온클라우드가 맡으면 특수관계인 거래가 되므로 미리 구조를 검토해…</span>
+        <span class="txt"><s><span class="date">2024-02-19 사전보고회</span> <span class="agenda">AI 데이터센터 사업 검토 보고</span><br>운영을 세온클라우드가 맡으면 특수관계인 거래가 되므로 미리 구조를 검토해…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/140/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/140/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2024-04-15 사전보고회</span> <span class="agenda">평택 AI 데이터센터 1단계 투자(안)</span><br>시공사 선정 시 계열사 참여 여부를 투명하게 공개해 주기 바람</span>
+        <span class="txt"><s><span class="date">2024-04-15 사전보고회</span> <span class="agenda">평택 AI 데이터센터 1단계 투자(안)</span><br>시공사 선정 시 계열사 참여 여부를 투명하게 공개해 주기 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/141/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/141/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -240,73 +279,73 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-03-10 사전보고회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>작년 초 말씀드린 대로 특수관계인 거래라서 위탁 수수료 적정성이 핵심임</span>
+        <span class="txt"><s><span class="date">2025-03-10 사전보고회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>작년 초 말씀드린 대로 특수관계인 거래라서 위탁 수수료 적정성이 핵심임</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/144/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-03-10 사전보고회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>외부 제안이 실제 입찰이었는지, 단순 견적이었는지 확인 바람</span>
-        
-        
-        <form class="item" method="post" action="/briefings/6/items/145/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/144/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-03-13 이사회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>공식 입찰이 아니었다면 외부 평가기관의 공정성 의견을 받아서 승인하는 것…</span>
+        <span class="txt"><s><span class="date">2025-03-10 사전보고회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>외부 제안이 실제 입찰이었는지, 단순 견적이었는지 확인 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/146/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-08-07 감사위원회</span> <span class="agenda">반기 재무제표 검토 결과</span><br>공사 지연 관련 시공사와의 분쟁 가능성도 확인 바람</span>
-        
-        
-        <form class="item" method="post" action="/briefings/6/items/147/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/145/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-08-18 사전보고회</span> <span class="agenda">평택 AI 데이터센터 공정 지연 및 전력 수급 현황 보고</span><br>지연 책임이 시공사에 있으면 지체상금 청구를 검토해 주기 바람</span>
+        <span class="txt"><s><span class="date">2025-03-13 이사회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>공식 입찰이 아니었다면 외부 평가기관의 공정성 의견을 받아서 승인하는 것…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/148/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 계열사 거래(안)</span><br>세온클라우드 운영위탁 거래가 처음으로 전체 연도 반영되는데 금액 증가 폭…</span>
-        
-        
-        <form class="item" method="post" action="/briefings/6/items/149/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/146/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 계열사 거래(안)</span><br>금액이 커진 만큼 운영 성과 지표와 수수료를 연동하는 조건을 검토해 주기…</span>
+        <span class="txt"><s><span class="date">2025-08-07 감사위원회</span> <span class="agenda">반기 재무제표 검토 결과</span><br>공사 지연 관련 시공사와의 분쟁 가능성도 확인 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/150/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/147/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2026-05-14 감사위원회</span> <span class="agenda">1분기 재무 검토</span><br>위약금 조항이 고객과 분쟁 소지가 없는지 법무 검토 바람</span>
+        <span class="txt"><s><span class="date">2025-08-18 사전보고회</span> <span class="agenda">평택 AI 데이터센터 공정 지연 및 전력 수급 현황 보고</span><br>지연 책임이 시공사에 있으면 지체상금 청구를 검토해 주기 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/151/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/148/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><s><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 계열사 거래(안)</span><br>세온클라우드 운영위탁 거래가 처음으로 전체 연도 반영되는데 금액 증가 폭…</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/6/items/149/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><s><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 계열사 거래(안)</span><br>금액이 커진 만큼 운영 성과 지표와 수수료를 연동하는 조건을 검토해 주기…</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/6/items/150/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><s><span class="date">2026-05-14 감사위원회</span> <span class="agenda">1분기 재무 검토</span><br>위약금 조항이 고객과 분쟁 소지가 없는지 법무 검토 바람</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/6/items/151/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -355,73 +394,73 @@
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-05-20 사전보고회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>홍콩 법인의 투자 결정을 본사 이사회가 어디까지 통제할지 정해야 함</span>
+        <span class="txt"><s><span class="date">2024-05-20 사전보고회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>홍콩 법인의 투자 결정을 본사 이사회가 어디까지 통제할지 정해야 함</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/156/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-05-23 이사회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>1건당 100억 이상 투자는 본사 이사회 승인을 받는 구조로 해 주기 바…</span>
-        
-        
-        <form class="item" method="post" action="/briefings/6/items/157/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2024-08-08 감사위원회</span> <span class="agenda">반기 재무제표 검토 결과</span><br>홍콩 법인 연결 회계 처리 기준을 미리 정리해 둘 필요가 있음</span>
-        
-        
-        <form class="item" method="post" action="/briefings/6/items/158/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/156/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-09-05 이사회</span> <span class="agenda">홍콩 투자법인 1호 투자 사전 검토 보고</span><br>지분율을 20% 미만으로 하면 규제 리스크가 줄어드는지 검토 바람</span>
+        <span class="txt"><s><span class="date">2024-05-23 이사회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>1건당 100억 이상 투자는 본사 이사회 승인을 받는 구조로 해 주기 바…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/159/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/157/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><s><span class="date">2024-08-08 감사위원회</span> <span class="agenda">반기 재무제표 검토 결과</span><br>홍콩 법인 연결 회계 처리 기준을 미리 정리해 둘 필요가 있음</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/6/items/158/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-11-11 사전보고회</span> <span class="agenda">홍콩 투자법인 1호 투자(링쉬테크)(안)</span><br>지분율 15%에 이사 지명권이 없는 구조면 규제 리스크는 줄지만 경영 감…</span>
+        <span class="txt"><s><span class="date">2024-09-05 이사회</span> <span class="agenda">홍콩 투자법인 1호 투자 사전 검토 보고</span><br>지분율을 20% 미만으로 하면 규제 리스크가 줄어드는지 검토 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/160/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/159/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><s><span class="date">2024-11-11 사전보고회</span> <span class="agenda">홍콩 투자법인 1호 투자(링쉬테크)(안)</span><br>지분율 15%에 이사 지명권이 없는 구조면 규제 리스크는 줄지만 경영 감…</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/6/items/160/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-01-23 감사위원회</span> <span class="agenda">2025년 내부감사 계획</span><br>홍콩 법인 내부통제도 감사 범위에 넣어야 함</span>
+        <span class="txt"><s><span class="date">2025-01-23 감사위원회</span> <span class="agenda">2025년 내부감사 계획</span><br>홍콩 법인 내부통제도 감사 범위에 넣어야 함</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/161/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-02-13 감사위원회</span> <span class="agenda">내부회계관리제도 운영실태 평가</span><br>개선된 절차가 홍콩 법인에도 적용되는지 확인 바람</span>
-        
-        
-        <form class="item" method="post" action="/briefings/6/items/162/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/161/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-02-20 이사회</span> <span class="agenda">내부회계관리제도 운영실태 보고</span><br>홍콩 법인은 내년부터 내부회계 평가 범위에 포함해야 함</span>
+        <span class="txt"><s><span class="date">2025-02-13 감사위원회</span> <span class="agenda">내부회계관리제도 운영실태 평가</span><br>개선된 절차가 홍콩 법인에도 적용되는지 확인 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/163/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/162/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><s><span class="date">2025-02-20 이사회</span> <span class="agenda">내부회계관리제도 운영실태 보고</span><br>홍콩 법인은 내년부터 내부회계 평가 범위에 포함해야 함</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/6/items/163/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -515,19 +554,19 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">준법통제기준 점검결과 및 계획</span><br>상장사 지분을 보유하게 되면서 미공개정보 이용 방지 체계를 갖췄는가?</span>
+        <span class="txt"><s><span class="date">2025-12-11 이사회</span> <span class="agenda">준법통제기준 점검결과 및 계획</span><br>상장사 지분을 보유하게 되면서 미공개정보 이용 방지 체계를 갖췄는가?</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/173/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/173/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">준법통제기준 점검결과 및 계획</span><br>정보 접근자 명단은 분기마다 갱신하고 기록을 남겨 주기 바람</span>
+        <span class="txt"><s><span class="date">2025-12-11 이사회</span> <span class="agenda">준법통제기준 점검결과 및 계획</span><br>정보 접근자 명단은 분기마다 갱신하고 기록을 남겨 주기 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/6/items/174/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/6/items/174/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -549,7 +588,8 @@
   </div>
   </div>
   <div class="right">
-    <h3 class="pane-title">이메일 초안 <a href="report-6.pdf" target="_blank">PDF 보기 ↗</a></h3>
+    <h3 class="pane-title">이메일 초안 <a href="report-6.pdf" target="_blank">PDF 보기 ↗</a>
+    </h3>
     <div class="card box preview">
     
     <script>
@@ -566,6 +606,7 @@
     </div>
   </div>
 </div>
+
 </section>
 
 </main>

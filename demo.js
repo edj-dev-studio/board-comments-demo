@@ -4,6 +4,17 @@
   "use strict";
   var KEY = "board-demo-state";
   var LOCKED_NOTICE = "승인된 정리본은 고칠 수 없습니다. 고치려면 승인을 취소하세요.";
+  var MEETING_FILES = {"2026-11-12 사전보고회": "index.html", "2026-11-05 이사회": "meeting-1.html"};
+
+  // 대상 회의 고르기: 로컬 웹은 ?meeting= 으로 서버가 그리지만, 데모는 회의마다 뽑아 둔 목록 파일로 간다
+  document.addEventListener("submit", function (e) {
+    var form = e.target;
+    if (!form.classList.contains("filter")) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var select = form.querySelector('select[name="meeting"]');
+    location.href = (select && MEETING_FILES[select.value]) || "index.html";
+  }, true);
 
   function loadState() {
     try { return JSON.parse(sessionStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
@@ -26,10 +37,10 @@
       if (!link) return;
       var saved = state[link.getAttribute("href").match(/briefing-(\d+)/)[1]];
       if (!saved) return;
+      // 칸: 이사 · 구분 · 발언(포함 / 전체) · 상태 · 이메일
       var cells = tr.querySelectorAll("td");
-      cells[3].textContent = saved.included + " / " + saved.total;
-      cells[4].textContent = String(saved.ambiguous);
-      setBadge(cells[5].querySelector(".badge"), saved.approved);
+      cells[2].textContent = saved.included + " / " + saved.total;
+      setBadge(cells[3].querySelector(".badge"), saved.approved);
     });
   }
 
@@ -126,16 +137,13 @@
   }
 
   function render() {
-    var count = { total: items.length, included: 0, ambiguous: 0 };
+    var count = { total: items.length, included: 0 };
     items.forEach(function (it) {
       it.txt.innerHTML = it.excluded ? "<s>" + it.html + "</s>" : it.html;
       it.button.textContent = it.excluded ? "포함" : "제외";
       it.button.className = it.excluded ? "include" : "exclude";
       it.mark.hidden = !it.excluded;
-      if (!it.excluded) {
-        count.included += 1;
-        if (it.ambiguous) count.ambiguous += 1;
-      }
+      if (!it.excluded) count.included += 1;
     });
     detail.classList.toggle("demo-locked", approved);
     setBadge(detail.querySelector(".head .badge"), approved);
@@ -143,8 +151,7 @@
       excluded: items.filter(function (it) { return it.excluded; }).map(function (it) { return it.id; }),
       approved: approved,
       total: count.total,
-      included: count.included,
-      ambiguous: count.ambiguous
+      included: count.included
     };
     renderList();
     renderReport();

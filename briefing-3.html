@@ -80,6 +80,25 @@
   .actions { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; }
   .notice.locked { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
   .notice.locked form { margin: 0; }
+  /* ⑤ 발송: 이메일 초안 제목 줄 오른쪽 막대, 정리본 아래 이력 카드, 확인 화면 */
+  /* 오른쪽 제목 줄에 버튼이 있어 더 높다. 두 제목 줄 높이를 같게 해 아래 흰 상자의 위 끝을 맞춘다 */
+  .pane-title { flex-wrap: wrap; min-height: 36px; align-items: center; }
+  .pane-title .send { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; font-weight: 400; }
+  .pane-title .send form { display: inline; margin: 0; }
+  a.button { display: inline-block; font-size: 13px; font-weight: 600; border-radius: 4px; padding: 6px 14px; text-decoration: none; border: 1px solid var(--gold); color: var(--gold); background: #fff; }
+  a.button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  a.button.primary:hover { background: #000; }
+  .pane-title .send button .addr { font-weight: 400; opacity: 0.8; margin-left: 4px; }
+  .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10; background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); font-size: 14px; font-weight: 600; transition: opacity 0.6s; }
+  .toast.hide { opacity: 0; pointer-events: none; }
+  .history { margin-top: 20px; }
+  td.send-status { white-space: nowrap; }
+  td.send-status form { display: inline; margin: 0 0 0 8px; }
+  td.send-status button { font-size: 12px; padding: 3px 10px; }
+  .failed { color: #94554d; }
+  .confirm th { width: 120px; }
+  .confirm .actions { justify-content: flex-start; gap: 12px; align-items: center; }
+  .confirm .preview { margin-top: 20px; }
   .notice { margin: 12px 0; padding: 10px 14px; background: #fcfbf9; border-left: 3px solid var(--gold); font-size: 13px; color: #444; }
 </style>
 <link rel="stylesheet" href="demo.css">
@@ -103,6 +122,9 @@
     <select name="meeting">
       
       
+      <option value="2026-11-12 사전보고회">2026-11-12 사전보고회</option>
+      
+      
       <option value="2026-11-05 이사회" selected>2026-11-05 이사회</option>
       
     </select>
@@ -111,63 +133,79 @@
 </form>
 <table class="list">
   <thead>
-    <tr><th>이사</th><th>구분</th><th>이메일</th><th class="num">발언(포함 / 전체)</th><th class="num">애매 포함</th><th>상태</th></tr>
+    <tr><th>이사</th><th>구분</th><th class="num">발언(포함 / 전체)</th><th>상태</th><th>이메일</th></tr>
   </thead>
   <tbody>
     
     <tr>
       
-      <td><a href="briefing-1.html#detail">김도현</a></td><td>대표이사</td><td>dohyun.kim@example.com</td>
-      <td class="num">18 / 18</td><td class="num">8</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-1.html#detail">김도현</a></td><td>대표이사</td>
+      <td class="num">9 / 18</td><td><span class="badge draft">검토 전</span></td>
+      <td>dohyun.kim@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-2.html#detail">박재성</a></td><td>사내이사</td><td>jaesung.park@example.com</td>
-      <td class="num">11 / 11</td><td class="num">1</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-2.html#detail">박재성</a></td><td>사내이사</td>
+      <td class="num">6 / 11</td><td><span class="badge draft">검토 전</span></td>
+      <td>jaesung.park@example.com</td>
+      
       
     </tr>
     
     <tr class="on">
       
-      <td><a href="briefing-3.html#detail">최윤석</a></td><td>기타비상무이사</td><td>yunseok.choi@example.com</td>
-      <td class="num">8 / 8</td><td class="num">5</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-3.html#detail">최윤석</a></td><td>기타비상무이사</td>
+      <td class="num">4 / 8</td><td><span class="badge draft">검토 전</span></td>
+      <td>yunseok.choi@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-4.html#detail">이정민</a></td><td>사외이사</td><td>jungmin.lee@example.com</td>
-      <td class="num">58 / 58</td><td class="num">22</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-4.html#detail">이정민</a></td><td>사외이사</td>
+      <td class="num">37 / 58</td><td><span class="badge draft">검토 전</span></td>
+      <td>jungmin.lee@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-5.html#detail">홍길도</a></td><td>사외이사</td><td>gildo.hong@example.com</td>
-      <td class="num">44 / 44</td><td class="num">18</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-5.html#detail">홍길도</a></td><td>사외이사</td>
+      <td class="num">44 / 44</td><td><span class="badge draft">검토 전</span></td>
+      <td>gildo.hong@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-6.html#detail">서지원</a></td><td>사외이사</td><td>jiwon.seo@example.com</td>
-      <td class="num">36 / 36</td><td class="num">23</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-6.html#detail">서지원</a></td><td>사외이사</td>
+      <td class="num">16 / 36</td><td><span class="badge draft">검토 전</span></td>
+      <td>jiwon.seo@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-7.html#detail">한상우</a></td><td>사외이사</td><td>sangwoo.han@example.com</td>
-      <td class="num">36 / 36</td><td class="num">11</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-7.html#detail">한상우</a></td><td>사외이사</td>
+      <td class="num">36 / 36</td><td><span class="badge draft">검토 전</span></td>
+      <td>sangwoo.han@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-8.html#detail">오미경</a></td><td>사외이사</td><td>migyeong.oh@example.com</td>
-      <td class="num">16 / 16</td><td class="num">12</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-8.html#detail">오미경</a></td><td>사외이사</td>
+      <td class="num">16 / 16</td><td><span class="badge draft">검토 전</span></td>
+      <td>migyeong.oh@example.com</td>
+      
       
     </tr>
     
@@ -181,8 +219,9 @@
   <span class="name">최윤석</span>
   <span class="meta">기타비상무이사 · yunseok.choi@example.com</span>
   <span class="badge draft">검토 전</span>
-  <a class="close" href="index.html">닫기 ✕</a>
+  <a class="close" href="meeting-1.html">닫기 ✕</a>
 </div>
+
 <div class="panes">
   <div class="left">
   <h3 class="pane-title">발언 목록</h3>
@@ -204,28 +243,28 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2024-03-14 이사회</span> <span class="agenda">세온클라우드 자금 대여(안)</span><br>그룹 차원에서도 세온클라우드의 데이터센터 운영 역량 확보가 중요함</span>
+        <span class="txt"><s><span class="date">2024-03-14 이사회</span> <span class="agenda">세온클라우드 자금 대여(안)</span><br>그룹 차원에서도 세온클라우드의 데이터센터 운영 역량 확보가 중요함</s></span>
         
         
-        <form class="item" method="post" action="/briefings/3/items/30/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2024-09-26 이사회</span> <span class="agenda">회사채 발행(안)</span><br>그룹 신용도를 활용할 수 있는 방안이 있는지 함께 검토해 보겠음</span>
-        
-        
-        <form class="item" method="post" action="/briefings/3/items/31/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/3/items/30/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2024-12-12 이사회</span> <span class="agenda">2025년 경영계획(안)</span><br>대주주 측에서는 데이터센터 사업에 대한 그룹 차원의 지원 방안도 검토하겠…</span>
+        <span class="txt"><s><span class="date">2024-09-26 이사회</span> <span class="agenda">회사채 발행(안)</span><br>그룹 신용도를 활용할 수 있는 방안이 있는지 함께 검토해 보겠음</s></span>
         
         
-        <form class="item" method="post" action="/briefings/3/items/32/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/3/items/31/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge ambiguous">애매</span>
+        <span class="txt"><s><span class="date">2024-12-12 이사회</span> <span class="agenda">2025년 경영계획(안)</span><br>대주주 측에서는 데이터센터 사업에 대한 그룹 차원의 지원 방안도 검토하겠…</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/3/items/32/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -281,10 +320,10 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2023-11-16 이사회</span> <span class="agenda">세온시스템즈 IT 운영 용역 거래(안)</span><br>그룹 IT 표준을 따르면 보안 관리 측면에서도 이점이 있음</span>
+        <span class="txt"><s><span class="date">2023-11-16 이사회</span> <span class="agenda">세온시스템즈 IT 운영 용역 거래(안)</span><br>그룹 IT 표준을 따르면 보안 관리 측면에서도 이점이 있음</s></span>
         
         
-        <form class="item" method="post" action="/briefings/3/items/37/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/3/items/37/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -297,7 +336,8 @@
   </div>
   </div>
   <div class="right">
-    <h3 class="pane-title">이메일 초안 <a href="report-3.pdf" target="_blank">PDF 보기 ↗</a></h3>
+    <h3 class="pane-title">이메일 초안 <a href="report-3.pdf" target="_blank">PDF 보기 ↗</a>
+    </h3>
     <div class="card box preview">
     
     <script>
@@ -314,6 +354,7 @@
     </div>
   </div>
 </div>
+
 </section>
 
 </main>

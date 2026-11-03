@@ -80,6 +80,25 @@
   .actions { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; }
   .notice.locked { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
   .notice.locked form { margin: 0; }
+  /* ⑤ 발송: 이메일 초안 제목 줄 오른쪽 막대, 정리본 아래 이력 카드, 확인 화면 */
+  /* 오른쪽 제목 줄에 버튼이 있어 더 높다. 두 제목 줄 높이를 같게 해 아래 흰 상자의 위 끝을 맞춘다 */
+  .pane-title { flex-wrap: wrap; min-height: 36px; align-items: center; }
+  .pane-title .send { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; font-weight: 400; }
+  .pane-title .send form { display: inline; margin: 0; }
+  a.button { display: inline-block; font-size: 13px; font-weight: 600; border-radius: 4px; padding: 6px 14px; text-decoration: none; border: 1px solid var(--gold); color: var(--gold); background: #fff; }
+  a.button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  a.button.primary:hover { background: #000; }
+  .pane-title .send button .addr { font-weight: 400; opacity: 0.8; margin-left: 4px; }
+  .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10; background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); font-size: 14px; font-weight: 600; transition: opacity 0.6s; }
+  .toast.hide { opacity: 0; pointer-events: none; }
+  .history { margin-top: 20px; }
+  td.send-status { white-space: nowrap; }
+  td.send-status form { display: inline; margin: 0 0 0 8px; }
+  td.send-status button { font-size: 12px; padding: 3px 10px; }
+  .failed { color: #94554d; }
+  .confirm th { width: 120px; }
+  .confirm .actions { justify-content: flex-start; gap: 12px; align-items: center; }
+  .confirm .preview { margin-top: 20px; }
   .notice { margin: 12px 0; padding: 10px 14px; background: #fcfbf9; border-left: 3px solid var(--gold); font-size: 13px; color: #444; }
 </style>
 <link rel="stylesheet" href="demo.css">
@@ -103,6 +122,9 @@
     <select name="meeting">
       
       
+      <option value="2026-11-12 사전보고회">2026-11-12 사전보고회</option>
+      
+      
       <option value="2026-11-05 이사회" selected>2026-11-05 이사회</option>
       
     </select>
@@ -111,63 +133,79 @@
 </form>
 <table class="list">
   <thead>
-    <tr><th>이사</th><th>구분</th><th>이메일</th><th class="num">발언(포함 / 전체)</th><th class="num">애매 포함</th><th>상태</th></tr>
+    <tr><th>이사</th><th>구분</th><th class="num">발언(포함 / 전체)</th><th>상태</th><th>이메일</th></tr>
   </thead>
   <tbody>
     
     <tr class="on">
       
-      <td><a href="briefing-1.html#detail">김도현</a></td><td>대표이사</td><td>dohyun.kim@example.com</td>
-      <td class="num">18 / 18</td><td class="num">8</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-1.html#detail">김도현</a></td><td>대표이사</td>
+      <td class="num">9 / 18</td><td><span class="badge draft">검토 전</span></td>
+      <td>dohyun.kim@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-2.html#detail">박재성</a></td><td>사내이사</td><td>jaesung.park@example.com</td>
-      <td class="num">11 / 11</td><td class="num">1</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-2.html#detail">박재성</a></td><td>사내이사</td>
+      <td class="num">6 / 11</td><td><span class="badge draft">검토 전</span></td>
+      <td>jaesung.park@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-3.html#detail">최윤석</a></td><td>기타비상무이사</td><td>yunseok.choi@example.com</td>
-      <td class="num">8 / 8</td><td class="num">5</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-3.html#detail">최윤석</a></td><td>기타비상무이사</td>
+      <td class="num">4 / 8</td><td><span class="badge draft">검토 전</span></td>
+      <td>yunseok.choi@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-4.html#detail">이정민</a></td><td>사외이사</td><td>jungmin.lee@example.com</td>
-      <td class="num">58 / 58</td><td class="num">22</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-4.html#detail">이정민</a></td><td>사외이사</td>
+      <td class="num">37 / 58</td><td><span class="badge draft">검토 전</span></td>
+      <td>jungmin.lee@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-5.html#detail">홍길도</a></td><td>사외이사</td><td>gildo.hong@example.com</td>
-      <td class="num">44 / 44</td><td class="num">18</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-5.html#detail">홍길도</a></td><td>사외이사</td>
+      <td class="num">44 / 44</td><td><span class="badge draft">검토 전</span></td>
+      <td>gildo.hong@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-6.html#detail">서지원</a></td><td>사외이사</td><td>jiwon.seo@example.com</td>
-      <td class="num">36 / 36</td><td class="num">23</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-6.html#detail">서지원</a></td><td>사외이사</td>
+      <td class="num">16 / 36</td><td><span class="badge draft">검토 전</span></td>
+      <td>jiwon.seo@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-7.html#detail">한상우</a></td><td>사외이사</td><td>sangwoo.han@example.com</td>
-      <td class="num">36 / 36</td><td class="num">11</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-7.html#detail">한상우</a></td><td>사외이사</td>
+      <td class="num">36 / 36</td><td><span class="badge draft">검토 전</span></td>
+      <td>sangwoo.han@example.com</td>
+      
       
     </tr>
     
     <tr>
       
-      <td><a href="briefing-8.html#detail">오미경</a></td><td>사외이사</td><td>migyeong.oh@example.com</td>
-      <td class="num">16 / 16</td><td class="num">12</td><td><span class="badge draft">검토 전</span></td>
+      <td><a href="briefing-8.html#detail">오미경</a></td><td>사외이사</td>
+      <td class="num">16 / 16</td><td><span class="badge draft">검토 전</span></td>
+      <td>migyeong.oh@example.com</td>
+      
       
     </tr>
     
@@ -181,8 +219,9 @@
   <span class="name">김도현</span>
   <span class="meta">대표이사 · dohyun.kim@example.com</span>
   <span class="badge draft">검토 전</span>
-  <a class="close" href="index.html">닫기 ✕</a>
+  <a class="close" href="meeting-1.html">닫기 ✕</a>
 </div>
+
 <div class="panes">
   <div class="left">
   <h3 class="pane-title">발언 목록</h3>
@@ -204,19 +243,19 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2023-12-14 이사회</span> <span class="agenda">2024년 경영계획(안)</span><br>2024년은 AI 인프라와 응용 서비스 양쪽에 균형 있게 투자하는 해로 …</span>
+        <span class="txt"><s><span class="date">2023-12-14 이사회</span> <span class="agenda">2024년 경영계획(안)</span><br>2024년은 AI 인프라와 응용 서비스 양쪽에 균형 있게 투자하는 해로 …</s></span>
         
         
-        <form class="item" method="post" action="/briefings/1/items/1/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/1/items/1/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2024-01-18 이사회</span> <span class="agenda">AI 투자 포트폴리오 전략 보고</span><br>포트폴리오 전체 관점에서 인프라 비중을 30%까지 높이는 것이 중장기 방…</span>
+        <span class="txt"><s><span class="date">2024-01-18 이사회</span> <span class="agenda">AI 투자 포트폴리오 전략 보고</span><br>포트폴리오 전체 관점에서 인프라 비중을 30%까지 높이는 것이 중장기 방…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/1/items/2/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/1/items/2/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -258,10 +297,10 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-02-20 이사회</span> <span class="agenda">제12기 정기주주총회 소집(안)</span><br>주총에서 데이터센터 사업 비전을 직접 설명하겠음</span>
+        <span class="txt"><s><span class="date">2025-02-20 이사회</span> <span class="agenda">제12기 정기주주총회 소집(안)</span><br>주총에서 데이터센터 사업 비전을 직접 설명하겠음</s></span>
         
         
-        <form class="item" method="post" action="/briefings/1/items/7/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/1/items/7/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -276,10 +315,10 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 경영계획(안)</span><br>2026년은 데이터센터 안정화와 포트폴리오 회수의 결실을 거두는 해로 삼…</span>
+        <span class="txt"><s><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 경영계획(안)</span><br>2026년은 데이터센터 안정화와 포트폴리오 회수의 결실을 거두는 해로 삼…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/1/items/9/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/1/items/9/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -303,10 +342,10 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2026-08-20 이사회</span> <span class="agenda">소버린 AI 컨소시엄 참여 검토 보고</span><br>국가 AI 인프라에 기여하는 것은 회사의 장기 위상에도 의미가 있다고 봄</span>
+        <span class="txt"><s><span class="date">2026-08-20 이사회</span> <span class="agenda">소버린 AI 컨소시엄 참여 검토 보고</span><br>국가 AI 인프라에 기여하는 것은 회사의 장기 위상에도 의미가 있다고 봄</s></span>
         
         
-        <form class="item" method="post" action="/briefings/1/items/12/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/1/items/12/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -321,10 +360,10 @@
       
       <li>
         <span class="badge ambiguous">애매</span>
-        <span class="txt"><span class="date">2026-10-22 이사회</span> <span class="agenda">2027년 중장기 전략 방향 보고</span><br>앞으로 3년은 AI 인프라와 투자 사업이 서로 수요를 만들어 주는 구조를…</span>
+        <span class="txt"><s><span class="date">2026-10-22 이사회</span> <span class="agenda">2027년 중장기 전략 방향 보고</span><br>앞으로 3년은 AI 인프라와 투자 사업이 서로 수요를 만들어 주는 구조를…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/1/items/14/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/1/items/14/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -337,28 +376,28 @@
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-05-23 이사회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>아시아 AI 시장 접근을 위해 장기적으로 꼭 필요한 거점이라고 판단함</span>
+        <span class="txt"><s><span class="date">2024-05-23 이사회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>아시아 AI 시장 접근을 위해 장기적으로 꼭 필요한 거점이라고 판단함</s></span>
         
         
-        <form class="item" method="post" action="/briefings/1/items/15/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-11-14 이사회</span> <span class="agenda">홍콩 투자법인 1호 투자(링쉬테크)(안)</span><br>홍콩 법인의 첫 투자인 만큼 성공 사례가 되도록 본사가 적극 지원하겠음</span>
-        
-        
-        <form class="item" method="post" action="/briefings/1/items/16/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/1/items/15/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2025-04-17 이사회</span> <span class="agenda">미국 대중 투자 제한 규정 대응 보고</span><br>홍콩 법인의 투자 방향을 중국 외 아시아로 넓히는 방안도 검토하겠음</span>
+        <span class="txt"><s><span class="date">2024-11-14 이사회</span> <span class="agenda">홍콩 투자법인 1호 투자(링쉬테크)(안)</span><br>홍콩 법인의 첫 투자인 만큼 성공 사례가 되도록 본사가 적극 지원하겠음</s></span>
         
         
-        <form class="item" method="post" action="/briefings/1/items/17/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/1/items/16/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><s><span class="date">2025-04-17 이사회</span> <span class="agenda">미국 대중 투자 제한 규정 대응 보고</span><br>홍콩 법인의 투자 방향을 중국 외 아시아로 넓히는 방안도 검토하겠음</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/1/items/17/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -385,7 +424,8 @@
   </div>
   </div>
   <div class="right">
-    <h3 class="pane-title">이메일 초안 <a href="report-1.pdf" target="_blank">PDF 보기 ↗</a></h3>
+    <h3 class="pane-title">이메일 초안 <a href="report-1.pdf" target="_blank">PDF 보기 ↗</a>
+    </h3>
     <div class="card box preview">
     
     <script>
@@ -402,6 +442,7 @@
     </div>
   </div>
 </div>
+
 </section>
 
 </main>
