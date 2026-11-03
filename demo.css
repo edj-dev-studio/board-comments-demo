@@ -1,0 +1,11 @@
+/* 공유용 데모 화면에만 붙는 스타일 (tools/build_demo.py) */
+.demo-banner {
+  background: #fbf4e6; color: #7a5f35; border-bottom: 1px solid #ecdcbc;
+  padding: 8px 28px; font-size: 13px;
+}
+/* 승인된 정리본은 고칠 수 없으므로 제외·포함·일괄 버튼을 숨긴다 (로컬 웹은 서버가 그리지 않는다) */
+#detail.demo-locked .bar,
+#detail.demo-locked .remarks > div.hint,
+#detail.demo-locked form.item,
+#detail.demo-locked .actions.demo-edit { display: none; }
+#detail:not(.demo-locked) .demo-lock { display: none; }
