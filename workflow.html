@@ -285,10 +285,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   <div class="flow">
     <div class="step"><div class="box">
       <span class="num">1</span>
-      <span class="t">이사 파일 넣기</span>
+      <span class="t">이사·회의체 파일 넣기</span>
       <span class="who p">사람</span>
-      <span class="d">이름·구분·분야·임기·이메일. 의사록보다 먼저 넣는다</span>
-      <span class="file">data/directors/</span>
+      <span class="d">이사(이름·구분·분야·임기·이메일)와 회의체 목록. 의사록보다 먼저 넣는다</span>
+      <span class="file">data/directors/ · data/bodies/</span>
     </div></div>
     <div class="step"><div class="box">
       <span class="num">2</span>
@@ -315,7 +315,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
       <span class="num">5</span>
       <span class="t">웹에서 검토·승인</span>
       <span class="who p">사람</span>
-      <span class="d">발언을 빼거나 되돌리고, 이메일 초안·PDF를 보고 승인한다</span>
+      <span class="d">발언을 빼거나 되돌리고, 필요하면 그 이사의 머리말·꼬리말을 고치고, 이메일 초안·PDF를 보고 승인한다</span>
       <span class="file">127.0.0.1:8000</span>
     </div></div>
     <div class="step"><div class="box">
@@ -341,9 +341,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
     <div class="card p">
       <span class="who p">사람</span>
       <ul>
-        <li>이사 파일·의사록·안건 파일(xlsx)을 만든다</li>
+        <li>이사 파일·회의체 파일·의사록·안건 파일(xlsx)을 만든다</li>
         <li>Claude Code에게 "적재해줘", "정리해줘"라고 요청한다</li>
         <li>웹에서 발언을 제외·포함한다</li>
+        <li>필요하면 이사별로 머리말·꼬리말을 고친다</li>
         <li>승인하거나 승인을 취소한다</li>
       </ul>
     </div>
@@ -374,11 +375,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   <h2 id="s-steps">단계별로 보기</h2>
 
   <div>
-  <!-- 1 이사 파일 -->
+  <!-- 1 이사·회의체 파일 -->
   <div class="stage">
     <div class="rail"><span class="n">1</span><span class="ln"></span></div>
     <div class="body">
-      <div class="head"><h3>이사 파일 넣기</h3><span class="who p">사람</span><code>load-directors</code></div>
+      <div class="head"><h3>이사·회의체 파일 넣기</h3><span class="who p">사람</span><code>load-directors</code> <code>load-bodies</code></div>
       <div class="card scroll">
         <table class="x">
           <thead><tr><th>이름</th><th>구분</th><th>분야</th><th>임기시작</th><th>임기종료</th><th>이메일</th></tr></thead>
@@ -390,6 +391,18 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
         <li><b>파일이 정답이다.</b> 새 이름은 추가, 바뀐 값은 수정, 파일에 없는 이사는 삭제한다.</li>
         <li>재임·퇴임은 임기로만 판단한다. 회의 날짜가 임기 안이면 그 회의의 정리 대상이다. 퇴임한 이사도 지우지 말고 임기만 지난 채로 둔다.</li>
         <li>의사록의 발언자는 이 파일에 있는 이름이나 <code>실무임원</code>이어야 하므로 의사록보다 먼저 넣는다.</li>
+      </ul>
+      <div class="card scroll">
+        <table class="x">
+          <thead><tr><th>회의체</th></tr></thead>
+          <tbody><tr><td>사전보고회</td></tr><tr><td>감사위원회</td></tr><tr><td>인사위원회</td></tr><tr><td>이사회</td></tr></tbody>
+        </table>
+        <p class="cap" style="margin-top:8px">샘플 회의체 파일 (한 열, 행 순서가 같은 날 회의를 놓는 순서)</p>
+      </div>
+      <ul class="rules">
+        <li>의사록·안건 파일의 회의체는 이 파일에 있는 이름이어야 하므로 의사록보다 먼저 넣는다.</li>
+        <li>위원회 이름이 바뀌거나 둘로 갈라져도 옛 이름은 지우지 않고 새 이름을 더한다. 과거 의사록은 옛 이름 그대로 남고, 회의체끼리의 관계는 적지 않는다.</li>
+        <li>의사록·예정 회의·정리본에 쓰이는 회의체를 파일에서 빼면 적재가 멈춘다.</li>
       </ul>
     </div>
   </div>
@@ -574,7 +587,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
         <div><span class="k">1</span><span>회의를 고르면 그 날짜에 임기 중인 이사가 한 줄씩 나온다. 포함/전체 발언 수와 상태를 보여 준다.</span></div>
         <div><span class="k">2</span><span>이사 이름을 누르면 목록 아래에 정리본이 열린다. "닫기 ✕"로 닫는다.</span></div>
         <div><span class="k">3</span><span>발언을 "제외"하면 취소선으로 남고 "포함"으로 되돌린다. 삭제가 아니다. 애매 발언은 버튼 하나로 모두 빼거나 넣을 수 있다.</span></div>
-        <div><span class="k">4</span><span>"이메일 초안"은 이사가 받을 리포트다. 포함된 발언만 들어가고, 발언이 없는 안건은 빠진다. PDF는 흑백이고 머리말·꼬리말이 없다.</span></div>
+        <div><span class="k">4</span><span>"이메일 초안"은 이사가 받을 리포트다. 포함된 발언만 들어가고, 발언이 없는 안건은 빠진다. 머리말·꼬리말은 파일 내용이 기본이고, 미리보기의 머리말·꼬리말 바로 아래 "머리말 수정"·"꼬리말 수정"으로 그 이사의 이번 메일만 고칠 수 있다. PDF는 흑백이고 머리말·꼬리말이 없다.</span></div>
         <div><span class="k">5</span><span>확인이 끝나면 "승인". 승인된 정리본은 잠기고, 고치려면 "승인 취소"를 누른다.</span></div>
         <div><span class="k">6</span><span>"수신처"는 이사 정보를 보기만 한다. 고치려면 이사 파일을 고쳐 다시 넣는다.</span></div>
       </div>
@@ -589,7 +602,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   <p class="prose">정리본은 <b>검토 전</b>과 <b>승인</b> 사이를 오가고, 이사에게 보내면 <b>발송</b>이 됩니다. 사람이 승인한 뒤에도 내용이 바뀌면 프로그램이 알아서 검토 전으로 돌려, 승인한 적 없는 내용이 승인 상태로 남지 않게 합니다.</p>
   <div class="card">
     <div class="states">
-      <div class="state dr"><b>검토 전</b><span>새로 만들었거나 내용이 바뀐 정리본. 제외·포함 가능</span></div>
+      <div class="state dr"><b>검토 전</b><span>새로 만들었거나 내용이 바뀐 정리본. 제외·포함·머리말 수정 가능</span></div>
       <div class="trans">
         <div><span>사람이 "승인"</span><span class="ar">→</span></div>
         <div><span class="ar">←</span><span>사람이 "승인 취소"</span></div>
@@ -622,6 +635,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
         <tr><td>예전 회의 의사록을 새로 받았다</td><td>적재 후 태깅</td><td>대상 회의보다 앞선 회의면 정리본에 빠진 발언이 있을 수 있다고 경고한다</td></tr>
         <tr><td>안건이 바뀌었다</td><td>안건 파일을 고쳐 다시 적재</td><td>빠진 안건 단락은 지워지고, 새 안건은 다음 정리 때 채운다. 리포트가 바뀐 승인 정리본은 검토 전으로</td></tr>
         <tr><td>회의 일정이 바뀌었다</td><td><code>delete-agendas</code>로 옛 회의 삭제 후 새 파일 적재</td><td>옛 회의의 정리본도 함께 지워진다 (되돌릴 수 없어 확인 후 실행)</td></tr>
+        <tr><td>회의체가 새로 생기거나 이름이 바뀌었다</td><td>회의체 파일을 고쳐 다시 적재</td><td>옛 이름은 지우지 않는다. 쓰이고 있는 회의체를 빼면 적재가 멈춘다</td></tr>
         <tr><td>이사가 바뀌었다 (주총 등)</td><td>이사 파일을 고쳐 다시 적재</td><td>임기가 아니게 된 이사의 정리본이 있으면 경고하고 승인을 막는다. 자동으로 지우지는 않는다</td></tr>
         <tr><td>한 안건만 다시 정리하고 싶다</td><td class="say">"○○ 안건 다시 정리해줘"</td><td>그 안건 단락만 새로 만든다. 그 단락의 제외 표시는 사라진다</td></tr>
         <tr><td>요약만 고치고 싶다</td><td class="say">"요약 다시 써줘"</td><td>발언과 제외 표시는 그대로, 요약만 바뀐다</td></tr>
@@ -644,7 +658,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
         <span class="nd">발언 <small>발언자 · 질문/의견/답변</small></span><span class="cn">└ 붙음</span>
         <span class="nd">태그 0~3개</span>
       </div>
-      <p class="cap">이사(이사 파일)는 발언자로 연결된다. 답변은 앞 이사 발언에 연결된다.</p>
+      <p class="cap">이사(이사 파일)는 발언자로, 회의체(회의체 파일)는 회의로 연결된다. 답변은 앞 이사 발언에 연결된다.</p>
     </div>
     <div class="card">
       <h3>예정 회의</h3>
@@ -676,6 +690,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
       <thead><tr><th>단계</th><th>Claude Code에게</th><th>명령</th></tr></thead>
       <tbody>
         <tr><td>이사 파일</td><td class="say">"이사 파일 넣어줘"</td><td class="mono">load-directors &lt;xlsx&gt;</td></tr>
+        <tr><td>회의체 파일</td><td class="say">"회의체 파일 넣어줘"</td><td class="mono">load-bodies &lt;xlsx&gt;</td></tr>
         <tr><td rowspan="3">의사록</td><td class="say">"○○.xlsx 적재해줘"</td><td class="mono">load &lt;xlsx&gt; → pending → apply</td></tr>
         <tr><td class="say">"○○ 발언 태그 바꿔줘"</td><td class="mono">find &lt;내용 일부&gt; → apply</td></tr>
         <tr><td class="say">"태그 현황 보여줘"</td><td class="mono">stats</td></tr>

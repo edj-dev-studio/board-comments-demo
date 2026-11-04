@@ -65,6 +65,7 @@
   .preview { padding: 0; overflow: hidden; }
   .preview .notice { margin: 16px 32px 0; }
   .preview iframe { width: 100%; height: 80vh; border: 0; display: block; }  /* 높이는 리포트를 읽은 뒤 내용에 맞춘다 */
+  .preview .greeting-note { margin: 12px 32px 0; }
   .remarks h3 { font-size: 15px; color: var(--gold); margin: 20px 0 8px; }
   .remarks ul { list-style: none; margin: 0; padding: 0; }
   .remarks li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; display: flex; gap: 8px; align-items: flex-start; }
@@ -109,7 +110,7 @@
   <span class="brand">이사회 사전 코멘트</span>
   <a href="index.html" class="on">정리본</a>
   <a href="recipients.html">수신처</a>
-  <a href="manual.html">메뉴얼</a>
+  <a href="manual.html">시스템 소개</a>
 </nav>
 <div class="demo-banner">데모 화면입니다. 가상 샘플 데이터이며, 버튼을 눌러도 저장되지 않고 탭을 닫으면 처음 상태로 돌아갑니다. 발송 버튼은 눌러 볼 수 있지만 메일은 나가지 않습니다.</div>
 <main>
@@ -173,7 +174,7 @@
     <tr class="on">
       
       <td><a href="briefing-4.html#detail">이정민</a></td><td>사외이사</td>
-      <td class="num">37 / 58</td><td><span class="badge draft">검토 전</span></td>
+      <td class="num">31 / 58</td><td><span class="badge draft">검토 전</span></td>
       <td>jungmin.lee@example.com</td>
       <td class="send-status"><span class="muted">발송전</span>
       </td>
@@ -286,28 +287,28 @@
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-02-22 이사회</span> <span class="agenda">AI 데이터센터 사업 검토 보고</span><br>자본비용과 차이가 1%p도 안 되면 사업 위험 대비 수익이 얇다고 봄</span>
+        <span class="txt"><s><span class="date">2024-02-22 이사회</span> <span class="agenda">AI 데이터센터 사업 검토 보고</span><br>자본비용과 차이가 1%p도 안 되면 사업 위험 대비 수익이 얇다고 봄</s></span>
         
         
-        <form class="item" method="post" action="/briefings/4/items/41/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
-        
-      </li>
-      
-      <li>
-        <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-04-15 사전보고회</span> <span class="agenda">평택 AI 데이터센터 1단계 투자(안)</span><br>1단계 1,800억 투자에 IRR 10.5%는 할인율 8% 기준인데 금리…</span>
-        
-        
-        <form class="item" method="post" action="/briefings/4/items/42/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/4/items/41/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2024-04-18 이사회</span> <span class="agenda">평택 AI 데이터센터 1단계 투자(안)</span><br>할인율 1%p에 NPV가 210억 움직일 만큼 금리에 민감하니 분기별로 …</span>
+        <span class="txt"><s><span class="date">2024-04-15 사전보고회</span> <span class="agenda">평택 AI 데이터센터 1단계 투자(안)</span><br>1단계 1,800억 투자에 IRR 10.5%는 할인율 8% 기준인데 금리…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/4/items/43/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/4/items/42/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
+        
+      </li>
+      
+      <li>
+        <span class="badge direct">직접</span>
+        <span class="txt"><s><span class="date">2024-04-18 이사회</span> <span class="agenda">평택 AI 데이터센터 1단계 투자(안)</span><br>할인율 1%p에 NPV가 210억 움직일 만큼 금리에 민감하니 분기별로 …</s></span>
+        
+        
+        <form class="item" method="post" action="/briefings/4/items/43/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -529,10 +530,10 @@
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2026-02-04 이사회</span> <span class="agenda">제13기 재무제표(안)</span><br>내용연수를 4년으로 할 경우 연간 상각비 증가 규모를 감사위원회에 보고해…</span>
+        <span class="txt"><s><span class="date">2026-02-04 이사회</span> <span class="agenda">제13기 재무제표(안)</span><br>내용연수를 4년으로 할 경우 연간 상각비 증가 규모를 감사위원회에 보고해…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/4/items/68/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/4/items/68/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -556,19 +557,19 @@
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2026-02-16 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 증설 검토 보고</span><br>2단계 사업비 3,200억이면 1단계보다 단위당 비용이 높은데 수익성은?</span>
+        <span class="txt"><s><span class="date">2026-02-16 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 증설 검토 보고</span><br>2단계 사업비 3,200억이면 1단계보다 단위당 비용이 높은데 수익성은?</s></span>
         
         
-        <form class="item" method="post" action="/briefings/4/items/71/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/4/items/71/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
       <li>
         <span class="badge direct">직접</span>
-        <span class="txt"><span class="date">2026-02-16 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 증설 검토 보고</span><br>1단계도 처음 가정한 가동률을 지키지 못했으니 이번에는 가동률 가정을 더…</span>
+        <span class="txt"><s><span class="date">2026-02-16 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 증설 검토 보고</span><br>1단계도 처음 가정한 가동률을 지키지 못했으니 이번에는 가동률 가정을 더…</s></span>
         
         
-        <form class="item" method="post" action="/briefings/4/items/72/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/4/items/72/include"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -806,6 +807,7 @@
       </span>
     </h3>
     <div class="card box preview">
+    
     
     <script>
       // 미리보기 틀을 리포트 길이만큼 늘려 틀 안에 따로 스크롤이 생기지 않게 한다 (같은 출처라 높이를 읽을 수 있다)
