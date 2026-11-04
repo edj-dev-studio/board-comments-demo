@@ -3,6 +3,19 @@
 <head>
 <meta charset="utf-8">
 <title>2026년 11월 5일 이사회 사전 자료</title>
+<style>
+  .greeting-edit { margin-top: 8px; font-size: 13px; }
+  .greeting-edit summary { display: inline-block; list-style: none; cursor: pointer; }
+  .greeting-edit summary::-webkit-details-marker { display: none; }
+  .greeting-edit summary .btn { display: inline-block; font-size: 12px; font-weight: bold; color: #9a7c4f; border: 1px solid #9a7c4f; border-radius: 4px; padding: 2px 10px; background: #fff; }
+  .greeting-edit summary:hover .btn { background: #f5f0e8; }
+  .greeting-edit textarea { display: block; width: 100%; box-sizing: border-box; margin-top: 8px; padding: 8px 10px; font: inherit; font-size: 14px; line-height: 1.6; color: #333; border: 1px solid #e8e1d6; border-radius: 4px; resize: vertical; }
+  .greeting-edit .row { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+  .greeting-edit .hint { flex: 1; font-size: 12px; color: #888; }
+  .greeting-edit form { margin: 0; }
+  .greeting-edit button { font: inherit; font-size: 12px; font-weight: bold; border-radius: 4px; padding: 4px 12px; cursor: pointer; background: #fff; color: #9a7c4f; border: 1px solid #9a7c4f; }
+  .greeting-edit button.primary { background: #2c2c2c; color: #fff; border-color: #2c2c2c; }
+</style>
 </head>
 <body style="margin: 0; padding: 0; background-color: #ffffff; color: #333333; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse; background-color: #ffffff;">
@@ -10,7 +23,18 @@
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: separate; background-color: #ffffff; border-radius: 10px; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">
 <tr><td style="padding: 28px 32px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">
-<tr><td style="padding: 0 0 20px 0; font-size: 14px; line-height: 1.6; color: #666666; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">(머리말 들어갈 자리: 안녕하세요)</td></tr>
+<tr><td style="padding: 0 0 20px 0; font-size: 14px; line-height: 1.6; color: #666666; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">(머리말 들어갈 자리: 안녕하세요)<details class="greeting-edit" data-role="edit-header">
+<summary><span class="btn">머리말 수정</span></summary>
+<form method="post" action="/briefings/5/greeting/header" target="_top">
+<input type="hidden" name="token" value="demo">
+<textarea name="text" rows="5">(머리말 들어갈 자리: 안녕하세요)</textarea>
+<div class="row"><span class="hint">이 이사의 이번 메일에만 쓰입니다. 비우면 파일 내용을 씁니다</span><button class="primary" type="submit">저장</button></div>
+</form>
+<form method="post" action="/briefings/5/greeting/header" target="_top">
+<input type="hidden" name="token" value="demo"><input type="hidden" name="text" value="">
+<div class="row"><span class="hint"></span><button type="submit">파일 내용으로 되돌리기</button></div>
+</form>
+</details></td></tr>
 <tr><td style="padding: 0 0 4px 0; font-size: 20px; font-weight: bold; color: #2c2c2c; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">2026년 11월 5일 이사회 사전 자료</td></tr>
 <tr><td style="padding: 0 0 24px 0; font-size: 13px; color: #666666; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">홍길도 이사님 · 관련 안건에 대한 이사님의 과거 발언</td></tr>
 <tr data-section="1" data-role="head"><td style="padding: 8px 0 6px 0; border-bottom: 1px solid #eeeeee; font-size: 16px; font-weight: bold; color: #9a7c4f; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">1. 평택 AI 데이터센터 2단계 GPU 구매 계약(안)</td></tr>
@@ -263,11 +287,32 @@
 </tr>
 </table>
 </td></tr>
-<tr><td style="padding: 4px 0 0 0; font-size: 14px; line-height: 1.6; color: #666666; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">(꼬리말 들어갈 자리: 감사합니다)</td></tr>
+<tr><td style="padding: 4px 0 0 0; font-size: 14px; line-height: 1.6; color: #666666; font-family: 'Malgun Gothic', '맑은 고딕', 'NanumGothic', 'Noto Sans CJK KR', sans-serif;">(꼬리말 들어갈 자리: 감사합니다)<details class="greeting-edit" data-role="edit-footer">
+<summary><span class="btn">꼬리말 수정</span></summary>
+<form method="post" action="/briefings/5/greeting/footer" target="_top">
+<input type="hidden" name="token" value="demo">
+<textarea name="text" rows="3">(꼬리말 들어갈 자리: 감사합니다)</textarea>
+<div class="row"><span class="hint">이 이사의 이번 메일에만 쓰입니다. 비우면 파일 내용을 씁니다</span><button class="primary" type="submit">저장</button></div>
+</form>
+<form method="post" action="/briefings/5/greeting/footer" target="_top">
+<input type="hidden" name="token" value="demo"><input type="hidden" name="text" value="">
+<div class="row"><span class="hint"></span><button type="submit">파일 내용으로 되돌리기</button></div>
+</form>
+</details></td></tr>
 </table>
 </td></tr>
 </table>
 </td></tr>
 </table>
+<script>
+  // 수정 칸을 열고 닫으면 정리본 화면의 미리보기 틀 높이를 다시 맞춘다
+  document.querySelectorAll("details.greeting-edit").forEach(function (d) {
+    d.addEventListener("toggle", function () { try { parent.fitReport(frameElement); } catch (err) {} });
+  });
+  // 저장하면 정리본 화면 전체가 다시 열린다. 바깥 화면(base.html)처럼 보던 위치를 남겨 맨 위로 튀지 않게 한다
+  document.addEventListener("submit", function () {
+    try { sessionStorage.setItem("scrollY", String(parent.scrollY)); } catch (err) {}
+  });
+</script>
 </body>
 </html>

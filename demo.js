@@ -1,4 +1,4 @@
-/* 공유용 데모: 서버 없이 제외·포함·승인·발송을 이 페이지 안에서만 흉내 낸다 (tools/build_demo.py가 붙인다).
+/* 공유용 데모: 서버 없이 제외·포함·승인·발송·머리말·꼬리말 수정을 이 페이지 안에서만 흉내 낸다 (tools/build_demo.py가 붙인다).
    상태는 이 탭의 sessionStorage에 이사별로 두므로 다른 이사를 열었다 돌아와도 남고, 탭을 닫으면 사라진다.
    메일은 나가지 않는다. 발송 버튼은 상태와 발송 이력만 바꾼다. */
 (function () {
@@ -10,6 +10,8 @@
   var NOT_APPROVED = "승인된 정리본만 발송할 수 있습니다";
   var TEST_TO = "me@example.com";
   var MEETING_FILES = {"2026-11-12 사전보고회": "index.html", "2026-11-05 이사회": "meeting-1.html"};
+  var GREETING = {"header": "(머리말 들어갈 자리: 안녕하세요)", "footer": "(꼬리말 들어갈 자리: 감사합니다)"};  // 데모의 머리말·꼬리말 기본 문구 (로컬 웹의 data/mail/ 파일 내용 자리)
+  var GREETING_PARTS = ["header", "footer"];
   // board/templates/list.html·briefing.html의 다시 고치기 확인 문구와 같다
   var REOPEN_CONFIRM = "보낸 메일은 회수되지 않습니다. 검토 전으로 돌려 고친 뒤 승인·발송을 다시 할까요? (제외 표시는 그대로입니다)";
   var STATUS = { draft: ["검토 전", "draft"], approved: ["승인", "approved"], sent: ["발송", "sent"] };
@@ -140,6 +142,56 @@
     return seq;
   }
 
+  // 이 정리본에 쓸 머리말·꼬리말. 고친 적 없으면 기본 문구
+  function greetingOf(id, part) {
+    var saved = state[id] && state[id][part];
+    return typeof saved === "string" ? saved : GREETING[part];
+  }
+  function greetingChanged(id) {
+    return GREETING_PARTS.some(function (part) { return typeof (state[id] && state[id][part]) === "string"; });
+  }
+
+  // 이메일 초안 틀의 머리말·꼬리말을 이 정리본에 쓸 문구로 바꾸고, 수정 버튼은 고칠 수 있을 때(검토 전)만 보인다.
+  // 저장은 서버 대신 이 탭의 상태에 둔다 (로컬 웹 board/review.py set_greeting과 같은 규칙: 비우거나 기본 문구와 같으면 기본을 따른다)
+  function applyGreeting(frame, id, editable) {
+    var doc;
+    try { doc = frame.contentDocument; } catch (e) { return; }
+    if (!doc || !doc.body) return;
+    GREETING_PARTS.forEach(function (part) {
+      var details = doc.querySelector('details[data-role="edit-' + part + '"]');
+      if (!details) return;
+      var cell = details.parentNode;
+      while (cell.firstChild && cell.firstChild !== details) cell.removeChild(cell.firstChild);
+      var text = greetingOf(id, part);
+      text.split("\n").forEach(function (line, n) {
+        if (n > 0) cell.insertBefore(doc.createElement("br"), details);
+        cell.insertBefore(doc.createTextNode(line), details);
+      });
+      details.style.display = editable ? "" : "none";
+      var forms = details.querySelectorAll("form");
+      forms[0].querySelector("textarea").value = text;
+      if (forms[1]) forms[1].hidden = typeof (state[id] && state[id][part]) !== "string";
+    });
+    if (doc.demoGreetingBound) return;
+    doc.demoGreetingBound = true;
+    doc.addEventListener("submit", function (e) {
+      var match = (e.target.getAttribute("action") || "").match(/\/greeting\/(header|footer)$/);
+      if (!match) return;
+      // 서버로 보내지 않는다. 틀 안 스크립트의 "보던 자리 기억"도 필요 없다 (페이지가 다시 열리지 않는다)
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      var part = match[1];
+      var text = e.target.querySelector('[name="text"]').value.replace(/\r\n/g, "\n").trim();
+      entry(id)[part] = text === "" || text === GREETING[part] ? null : text;
+      saveState();
+      e.target.closest("details").open = false;
+      applyGreeting(frame, id, true);
+      if (typeof fitReport === "function") fitReport(frame);
+      if (typeof onGreetingSaved === "function") onGreetingSaved();
+    }, true);
+  }
+  var onGreetingSaved = null;
+
   // 모든 화면 공통: 대상 회의 고르기와 목록의 다시 고치기
   document.addEventListener("submit", function (e) {
     var form = e.target;
@@ -193,6 +245,7 @@
     var frame = confirmCard.querySelector("iframe");
     var excluded = (state[id] && state[id].excluded) || null;
     function hide() {
+      applyGreeting(frame, id, false);  // 메일 미리보기에는 고친 머리말·꼬리말이 보이고 수정 버튼은 없다
       // 저장된 적 없으면 뽑을 때의 제외(이메일 초안 틀에는 다 들어 있다)를 정리본 화면에서 알 수 없으니 그대로 보인다
       if (excluded) hideExcluded(frame, excluded);
     }
@@ -289,7 +342,16 @@
     empty = el("p", "notice", "리포트에 들어갈 발언이 없습니다");
     preview.insertBefore(empty, preview.firstChild);
   }
+  // 고칠 수 없을 때(승인·발송) 머리말·꼬리말을 따로 고쳤다는 안내. 로컬 웹 briefing.html의 greeting-note와 같다
+  var greetingNote = el("p", "hint greeting-note", "이 정리본은 머리말·꼬리말을 따로 고쳤습니다");
+  preview.insertBefore(greetingNote, preview.firstChild);
+  function renderGreetingNote() {
+    greetingNote.hidden = statusOf(id) === "draft" || !greetingChanged(id);
+  }
+  onGreetingSaved = renderGreetingNote;
   function renderReport() {
+    applyGreeting(frame, id, statusOf(id) === "draft");
+    renderGreetingNote();
     var seq = hideExcluded(frame, items.filter(function (it) { return it.excluded; }).map(function (it) { return it.id; }));
     if (seq !== null) empty.hidden = seq > 0;
   }
