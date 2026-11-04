@@ -40,6 +40,7 @@
   .muted { color: var(--muted); }
   .filter { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; font-size: 14px; color: var(--sub); }
   .filter label { display: flex; gap: 10px; align-items: center; }
+  .filter + .agendas { margin: -8px 0 18px; padding-left: 22px; font-size: 14px; line-height: 1.7; }
 
   .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; white-space: nowrap; }
   .badge.draft { background: #eee; color: #555; }
@@ -132,6 +133,11 @@
   </label>
   <button type="submit">보기</button>
 </form>
+
+<ol class="agendas">
+  <li>2027년 경영계획(안)</li><li>메디뉴런 잔여 지분 처리(안)</li><li>세온클라우드 운영위탁 계약 갱신(안)</li>
+</ol>
+
 <table class="list">
   <thead>
     <tr><th>이사</th><th>구분</th><th class="num">발언(포함 / 전체)</th><th>상태</th><th>이메일</th><th>최종 발송현황</th></tr>
@@ -245,10 +251,10 @@
   <div class="card box remarks">
     
     <div class="bar">
-      <form method="post" action="/briefings/14/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
-      <form method="post" action="/briefings/14/include-ambiguous"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">애매 발언 모두 포함</button></form>
+      <form method="post" action="/briefings/14/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
+      <form method="post" action="/briefings/14/include-ambiguous"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">애매 발언 모두 포함</button></form>
       
-      <form method="post" action="/briefings/14/approve"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="primary" type="submit">승인</button></form>
+      <form method="post" action="/briefings/14/approve"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="primary" type="submit">승인</button></form>
       
     </div>
     <div class="hint">제외해도 삭제되지 않으며 다시 포함할 수 있습니다</div>
@@ -268,7 +274,7 @@
         <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">준법통제기준 점검결과 및 계획</span><br>상장사 지분을 보유하게 되면서 미공개정보 이용 방지 체계를 갖췄는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/299/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/299/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -277,7 +283,7 @@
         <span class="txt"><span class="date">2026-01-15 이사회</span> <span class="agenda">이사회 운영예산 실적 및 계획 보고</span><br>상장 포트폴리오사가 생겼으니 이사 대상 내부자거래 규정 교육을 추가해 주…</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/300/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/300/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -286,7 +292,7 @@
         <span class="txt"><span class="date">2026-10-29 감사위원회</span> <span class="agenda">준법 점검 결과</span><br>상장 포트폴리오사 정보 접근자 명단 갱신이 분기마다 이뤄졌는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/301/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/301/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -302,7 +308,7 @@
         <span class="txt"><s><span class="date">2023-11-16 이사회</span> <span class="agenda">세온시스템즈 IT 운영 용역 거래(안)</span><br>비교 견적은 매년 갱신해서 이사회에 함께 보고 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/302/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/302/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -311,7 +317,7 @@
         <span class="txt"><s><span class="date">2023-12-11 사전보고회</span> <span class="agenda">2024년 계열사 거래(안)</span><br>계열사 거래 총액이 전년보다 18% 늘어난 이유는?</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/303/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/303/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -320,7 +326,7 @@
         <span class="txt"><s><span class="date">2023-12-11 사전보고회</span> <span class="agenda">2024년 계열사 거래(안)</span><br>거래 조건의 공정성은 외부 평가를 받아 두는 것이 바람직함</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/304/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/304/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -329,7 +335,7 @@
         <span class="txt"><s><span class="date">2023-12-14 이사회</span> <span class="agenda">2024년 계열사 거래(안)</span><br>사전보고회에서 요청한 외부 평가 계획은 어떻게 되었는가?</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/305/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/305/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -338,7 +344,7 @@
         <span class="txt"><span class="date">2024-02-19 사전보고회</span> <span class="agenda">AI 데이터센터 사업 검토 보고</span><br>운영을 세온클라우드가 맡으면 특수관계인 거래가 되므로 미리 구조를 검토해…</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/306/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/306/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -347,7 +353,7 @@
         <span class="txt"><s><span class="date">2024-03-11 사전보고회</span> <span class="agenda">세온클라우드 자금 대여(안)</span><br>계열사 자금 대여는 특수관계인 거래라 금리 적정성 근거가 꼭 필요함</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/307/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/307/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -356,7 +362,7 @@
         <span class="txt"><s><span class="date">2024-03-14 이사회</span> <span class="agenda">세온클라우드 자금 대여(안)</span><br>사전보고회에서 요청한 외부 금리 평가 의견을 받았는가?</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/308/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/308/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -365,7 +371,7 @@
         <span class="txt"><s><span class="date">2024-12-09 사전보고회</span> <span class="agenda">2025년 계열사 거래(안)</span><br>작년에 요청한 회계법인의 거래 조건 적정성 평가 결과는?</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/309/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/309/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -374,7 +380,7 @@
         <span class="txt"><s><span class="date">2024-12-09 사전보고회</span> <span class="agenda">2025년 계열사 거래(안)</span><br>평가 결과 요약을 이사회 자료에 매년 첨부해 주기 바람</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/310/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/310/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -383,7 +389,7 @@
         <span class="txt"><span class="date">2024-12-12 이사회</span> <span class="agenda">2025년 계열사 거래(안)</span><br>세온클라우드 거래가 올해 데이터센터 운영위탁으로 크게 늘 텐데 별도 심의…</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/311/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/311/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -392,7 +398,7 @@
         <span class="txt"><span class="date">2025-03-10 사전보고회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>작년 초 말씀드린 대로 특수관계인 거래라서 위탁 수수료 적정성이 핵심임</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/312/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/312/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -401,7 +407,7 @@
         <span class="txt"><span class="date">2025-03-10 사전보고회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>외부 제안이 실제 입찰이었는지, 단순 견적이었는지 확인 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/313/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/313/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -410,7 +416,7 @@
         <span class="txt"><span class="date">2025-03-13 이사회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>공식 입찰이 아니었다면 외부 평가기관의 공정성 의견을 받아서 승인하는 것…</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/314/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/314/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -419,7 +425,7 @@
         <span class="txt"><s><span class="date">2025-03-13 이사회</span> <span class="agenda">세온클라우드 자금 대여 만기 연장(안)</span><br>연장이 반복되면 사실상 장기 지원이 되므로 상환 계획을 함께 받아 주기 …</s></span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/315/include"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">포함</button></form>
+        <form class="item" method="post" action="/briefings/14/items/315/include"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">포함</button></form>
         
       </li>
       
@@ -428,7 +434,7 @@
         <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 계열사 거래(안)</span><br>세온클라우드 운영위탁 거래가 처음으로 전체 연도 반영되는데 금액 증가 폭…</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/316/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/316/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -437,7 +443,7 @@
         <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 계열사 거래(안)</span><br>금액이 커진 만큼 운영 성과 지표와 수수료를 연동하는 조건을 검토해 주기…</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/317/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/317/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -446,7 +452,7 @@
         <span class="txt"><span class="date">2026-07-06 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 투자(안)</span><br>2단계 운영도 세온클라우드에 맡긴다면 1단계 운영 성과 평가 결과부터 보…</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/318/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/318/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -455,7 +461,7 @@
         <span class="txt"><span class="date">2026-07-09 이사회</span> <span class="agenda">평택 AI 데이터센터 2단계 투자(안)</span><br>2단계 운영위탁도 특수관계인 거래이므로 별도 안건으로 공정성 의견을 받아…</span>
         
         
-        <form class="item" method="post" action="/briefings/14/items/319/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/14/items/319/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -463,7 +469,7 @@
     
     
     
-    <div class="actions"><form method="post" action="/briefings/14/approve"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="primary" type="submit">승인</button></form></div>
+    <div class="actions"><form method="post" action="/briefings/14/approve"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="primary" type="submit">승인</button></form></div>
     
   </div>
   </div>

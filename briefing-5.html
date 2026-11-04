@@ -40,6 +40,7 @@
   .muted { color: var(--muted); }
   .filter { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; font-size: 14px; color: var(--sub); }
   .filter label { display: flex; gap: 10px; align-items: center; }
+  .filter + .agendas { margin: -8px 0 18px; padding-left: 22px; font-size: 14px; line-height: 1.7; }
 
   .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; white-space: nowrap; }
   .badge.draft { background: #eee; color: #555; }
@@ -132,6 +133,11 @@
   </label>
   <button type="submit">보기</button>
 </form>
+
+<ol class="agendas">
+  <li>평택 AI 데이터센터 2단계 GPU 구매 계약(안)</li><li>홍콩 투자법인 링쉬테크 지분 처리 보고</li><li>정보보호 체계 고도화</li>
+</ol>
+
 <table class="list">
   <thead>
     <tr><th>이사</th><th>구분</th><th class="num">발언(포함 / 전체)</th><th>상태</th><th>이메일</th><th>최종 발송현황</th></tr>
@@ -245,10 +251,10 @@
   <div class="card box remarks">
     
     <div class="bar">
-      <form method="post" action="/briefings/5/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
-      <form method="post" action="/briefings/5/include-ambiguous"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">애매 발언 모두 포함</button></form>
+      <form method="post" action="/briefings/5/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
+      <form method="post" action="/briefings/5/include-ambiguous"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">애매 발언 모두 포함</button></form>
       
-      <form method="post" action="/briefings/5/approve"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="primary" type="submit">승인</button></form>
+      <form method="post" action="/briefings/5/approve"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="primary" type="submit">승인</button></form>
       
     </div>
     <div class="hint">제외해도 삭제되지 않으며 다시 포함할 수 있습니다</div>
@@ -263,7 +269,7 @@
         <span class="txt"><span class="date">2024-05-20 사전보고회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>중국 투자시 미국 정부가 제동을 거는 것에 대해서도 사전적 검토가 필요함</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/96/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/96/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -272,7 +278,7 @@
         <span class="txt"><span class="date">2024-05-23 이사회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>사전보고회에서 말씀드린 미국 규제 검토 결과를 첫 투자 전에 반드시 보고…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/97/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/97/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -281,7 +287,7 @@
         <span class="txt"><span class="date">2024-10-21 사전보고회</span> <span class="agenda">GPU 선구매 계약(안)</span><br>미국 수출통제가 강화되면 해외 반출이 막힐 수 있으니 국내 사용 조건을 …</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/98/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/98/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -290,7 +296,7 @@
         <span class="txt"><span class="date">2024-10-24 이사회</span> <span class="agenda">GPU 선구매 계약(안)</span><br>미국 수출통제 규정 변동을 분기마다 점검해 보고해 주기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/99/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/99/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -299,7 +305,7 @@
         <span class="txt"><span class="date">2025-04-14 사전보고회</span> <span class="agenda">미국 대중 투자 제한 규정 대응 보고</span><br>이번 규정은 AI 분야 투자를 직접 겨냥한 것이라 링쉬테크 투자도 영향권…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/100/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/100/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -308,7 +314,7 @@
         <span class="txt"><span class="date">2025-04-17 이사회</span> <span class="agenda">미국 대중 투자 제한 규정 대응 보고</span><br>작년 홍콩 법인 설립 때 우려했던 상황이 현실이 되었으니 대응 시나리오를…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/101/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/101/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -317,7 +323,7 @@
         <span class="txt"><span class="date">2025-09-18 이사회</span> <span class="agenda">GPU 확보 방식(리스·구매) 검토 보고</span><br>리스 계약 상대가 미국 기업이면 수출통제 변경 시 계약 해지 조항을 확인…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/102/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/102/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -326,7 +332,7 @@
         <span class="txt"><span class="date">2025-11-13 이사회</span> <span class="agenda">홍콩 투자법인 포트폴리오 재편(안)</span><br>2024년 설립 때부터 우려한 미국 규제가 결국 투자 전략을 바꾸게 만들…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/103/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/103/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -335,7 +341,7 @@
         <span class="txt"><span class="date">2026-02-16 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 증설 검토 보고</span><br>2단계 GPU를 미국에서 들여올 때 수출통제 변화 가능성도 사업 위험에 …</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/104/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/104/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -344,7 +350,7 @@
         <span class="txt"><span class="date">2026-08-17 사전보고회</span> <span class="agenda">소버린 AI 컨소시엄 참여 검토 보고</span><br>해외 빅테크와의 협력 제한 조건이 붙는지 확인해야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/105/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/105/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -353,7 +359,7 @@
         <span class="txt"><span class="date">2026-09-14 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 자금조달 방안 보고</span><br>해외 재무적 투자자가 들어오면 국가 핵심 기술 관련 신고 대상인지 확인해…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/106/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/106/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -362,7 +368,7 @@
         <span class="txt"><span class="date">2026-10-22 이사회</span> <span class="agenda">2027년 중장기 전략 방향 보고</span><br>해외 거점 전략은 미중 관계 변화에 따라 바뀔 수 있도록 유연하게 짜 주…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/107/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/107/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -378,7 +384,7 @@
         <span class="txt"><span class="date">2023-12-11 사전보고회</span> <span class="agenda">2024년 경영계획(안)</span><br>해외 투자 목표 비중이 15%인데 지역별 배분 계획은 있는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/108/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/108/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -387,7 +393,7 @@
         <span class="txt"><span class="date">2024-01-18 이사회</span> <span class="agenda">AI 투자 포트폴리오 전략 보고</span><br>해외 투자를 늘린다면 어느 지역을 거점으로 할지 먼저 정리 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/109/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/109/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -396,7 +402,7 @@
         <span class="txt"><span class="date">2024-01-18 이사회</span> <span class="agenda">AI 투자 포트폴리오 전략 보고</span><br>거점별로 규제와 세제 차이를 비교한 자료를 다음에 보여 주기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/110/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/110/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -405,7 +411,7 @@
         <span class="txt"><span class="date">2024-05-20 사전보고회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>투자회사를 꼭 홍콩에 설립 해야만 하는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/111/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/111/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -414,7 +420,7 @@
         <span class="txt"><span class="date">2024-05-20 사전보고회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>중국 투자시 미국 정부가 제동을 거는 것에 대해서도 사전적 검토가 필요함</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/112/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/112/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -423,7 +429,7 @@
         <span class="txt"><span class="date">2024-05-23 이사회</span> <span class="agenda">홍콩 투자법인 설립(안)</span><br>사전보고회에서 말씀드린 미국 규제 검토 결과를 첫 투자 전에 반드시 보고…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/113/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/113/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -432,7 +438,7 @@
         <span class="txt"><span class="date">2024-07-25 이사회</span> <span class="agenda">2024년 2/4분기 사후 보고사항</span><br>홍콩 법인 설립 등기와 인력 채용은 어디까지 진행되었는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/114/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/114/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -441,7 +447,7 @@
         <span class="txt"><span class="date">2024-07-25 이사회</span> <span class="agenda">2024년 2/4분기 사후 보고사항</span><br>현지 인력이 미국 규제 동향을 꾸준히 확인하는 역할도 맡도록 해 주기 바…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/115/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/115/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -450,7 +456,7 @@
         <span class="txt"><span class="date">2024-09-05 이사회</span> <span class="agenda">홍콩 투자법인 1호 투자 사전 검토 보고</span><br>링쉬테크의 영상인식 기술은 미국 제재 대상 분야와 관련 있지 않은가?</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/116/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/116/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -459,7 +465,7 @@
         <span class="txt"><span class="date">2024-09-05 이사회</span> <span class="agenda">홍콩 투자법인 1호 투자 사전 검토 보고</span><br>미국 대중 투자 규정이 강화되는 흐름이니 최종 결정 전에 2차 법률 검토…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/117/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/117/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -468,7 +474,7 @@
         <span class="txt"><span class="date">2024-09-12 인사위원회</span> <span class="agenda">핵심인재 보상체계 개편 검토</span><br>홍콩 현지 인력 보상은 현지 시장 기준으로 따로 운영해야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/118/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/118/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -477,7 +483,7 @@
         <span class="txt"><span class="date">2024-11-11 사전보고회</span> <span class="agenda">홍콩 투자법인 1호 투자(링쉬테크)(안)</span><br>2차 법률 검토 결과는 어떻게 나왔는가? 감시 장비 용도 문제는 정리되었…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/119/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/119/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -486,7 +492,7 @@
         <span class="txt"><span class="date">2024-11-11 사전보고회</span> <span class="agenda">홍콩 투자법인 1호 투자(링쉬테크)(안)</span><br>분리 조건이 지켜지는지 매년 확인하는 장치가 있어야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/120/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/120/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -495,7 +501,7 @@
         <span class="txt"><span class="date">2024-11-14 이사회</span> <span class="agenda">홍콩 투자법인 1호 투자(링쉬테크)(안)</span><br>사전보고회에서 말씀드린 분리 조건 이행 확인을 투자계약 의무로 넣어 주기…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/121/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/121/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -504,7 +510,7 @@
         <span class="txt"><span class="date">2025-01-09 인사위원회</span> <span class="agenda">2024년 경영진 평가 및 성과급(안)</span><br>홍콩 현지 인력의 평가는 본사 기준과 별도로 운영되는지 확인 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/122/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/122/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -513,7 +519,7 @@
         <span class="txt"><span class="date">2025-04-14 사전보고회</span> <span class="agenda">미국 대중 투자 제한 규정 대응 보고</span><br>이번 규정은 AI 분야 투자를 직접 겨냥한 것이라 링쉬테크 투자도 영향권…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/123/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/123/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -522,7 +528,7 @@
         <span class="txt"><span class="date">2025-04-14 사전보고회</span> <span class="agenda">미국 대중 투자 제한 규정 대응 보고</span><br>미국 자금이 들어간 LP나 미국인 임원이 홍콩 법인에 있는지 확인해야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/124/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/124/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -531,7 +537,7 @@
         <span class="txt"><span class="date">2025-04-17 이사회</span> <span class="agenda">미국 대중 투자 제한 규정 대응 보고</span><br>작년 홍콩 법인 설립 때 우려했던 상황이 현실이 되었으니 대응 시나리오를…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/125/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/125/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -540,7 +546,7 @@
         <span class="txt"><span class="date">2025-06-05 인사위원회</span> <span class="agenda">핵심인력 장기성과급 도입 검토</span><br>홍콩 인력에게도 같은 제도를 적용할 때 현지 세법을 확인해야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/126/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/126/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -549,7 +555,7 @@
         <span class="txt"><span class="date">2025-07-24 이사회</span> <span class="agenda">2025년 2/4분기 사후 보고사항</span><br>미국 신고 절차 완료 여부를 보고하기로 했는데 결과는?</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/127/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/127/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -558,7 +564,7 @@
         <span class="txt"><span class="date">2025-07-24 이사회</span> <span class="agenda">2025년 2/4분기 사후 보고사항</span><br>규정 시행세칙이 하반기에 나오니 그때 다시 검토 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/128/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/128/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -567,7 +573,7 @@
         <span class="txt"><span class="date">2025-11-10 사전보고회</span> <span class="agenda">홍콩 투자법인 포트폴리오 재편(안)</span><br>미국 시행세칙이 확정되었으니 링쉬테크 지분을 계속 들고 가는 것이 맞는지…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/129/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/129/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -576,7 +582,7 @@
         <span class="txt"><span class="date">2025-11-10 사전보고회</span> <span class="agenda">홍콩 투자법인 포트폴리오 재편(안)</span><br>보유만 하는 지분은 가치가 희석될 뿐이니 단계적 매각을 검토하는 게 맞다…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/130/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/130/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -585,7 +591,7 @@
         <span class="txt"><span class="date">2025-11-13 이사회</span> <span class="agenda">홍콩 투자법인 포트폴리오 재편(안)</span><br>2024년 설립 때부터 우려한 미국 규제가 결국 투자 전략을 바꾸게 만들…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/131/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/131/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -594,7 +600,7 @@
         <span class="txt"><span class="date">2025-11-13 이사회</span> <span class="agenda">홍콩 투자법인 포트폴리오 재편(안)</span><br>매각 대금을 회수할 때 외환 규제도 미리 확인 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/132/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/132/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -603,7 +609,7 @@
         <span class="txt"><span class="date">2025-12-08 사전보고회</span> <span class="agenda">2026년 경영계획(안)</span><br>해외 투자 비중이 줄었는데 홍콩 법인 재편 영향인가?</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/133/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/133/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -612,7 +618,7 @@
         <span class="txt"><span class="date">2026-01-08 인사위원회</span> <span class="agenda">2025년 경영진 평가 및 성과급(안)</span><br>홍콩 법인 재편으로 현지 인력 구조조정이 있다면 보상 기준을 미리 정해야…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/134/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/134/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -621,7 +627,7 @@
         <span class="txt"><span class="date">2026-05-21 이사회</span> <span class="agenda">홍콩 투자법인 운영 점검 보고</span><br>재편 후 동남아 투자 실적은 어떻게 되는가? 지역 전환이 실제로 이뤄지고…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/135/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/135/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -630,7 +636,7 @@
         <span class="txt"><span class="date">2026-05-21 이사회</span> <span class="agenda">홍콩 투자법인 운영 점검 보고</span><br>동남아도 미중 경쟁의 영향을 받는 지역이니 투자처의 중국 관련 매출 비중…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/136/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/136/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -639,7 +645,7 @@
         <span class="txt"><span class="date">2026-06-04 인사위원회</span> <span class="agenda">장기성과급 운영 1년 점검</span><br>홍콩 인력 적용 시 세법 검토 결과는 어떻게 되었는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/137/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/137/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -648,7 +654,7 @@
         <span class="txt"><span class="date">2026-09-03 인사위원회</span> <span class="agenda">2026년 임원 평가 기준 개정 검토</span><br>홍콩 법인장 평가에 규제 준수 항목을 별도로 두기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/138/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/138/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -657,7 +663,7 @@
         <span class="txt"><span class="date">2026-10-22 이사회</span> <span class="agenda">2027년 중장기 전략 방향 보고</span><br>해외 거점 전략은 미중 관계 변화에 따라 바뀔 수 있도록 유연하게 짜 주…</span>
         
         
-        <form class="item" method="post" action="/briefings/5/items/139/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/5/items/139/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -670,7 +676,7 @@
     
     
     
-    <div class="actions"><form method="post" action="/briefings/5/approve"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="primary" type="submit">승인</button></form></div>
+    <div class="actions"><form method="post" action="/briefings/5/approve"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="primary" type="submit">승인</button></form></div>
     
   </div>
   </div>

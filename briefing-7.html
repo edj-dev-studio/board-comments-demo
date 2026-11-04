@@ -40,6 +40,7 @@
   .muted { color: var(--muted); }
   .filter { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; font-size: 14px; color: var(--sub); }
   .filter label { display: flex; gap: 10px; align-items: center; }
+  .filter + .agendas { margin: -8px 0 18px; padding-left: 22px; font-size: 14px; line-height: 1.7; }
 
   .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; white-space: nowrap; }
   .badge.draft { background: #eee; color: #555; }
@@ -132,6 +133,11 @@
   </label>
   <button type="submit">보기</button>
 </form>
+
+<ol class="agendas">
+  <li>평택 AI 데이터센터 2단계 GPU 구매 계약(안)</li><li>홍콩 투자법인 링쉬테크 지분 처리 보고</li><li>정보보호 체계 고도화</li>
+</ol>
+
 <table class="list">
   <thead>
     <tr><th>이사</th><th>구분</th><th class="num">발언(포함 / 전체)</th><th>상태</th><th>이메일</th><th>최종 발송현황</th></tr>
@@ -245,10 +251,10 @@
   <div class="card box remarks">
     
     <div class="bar">
-      <form method="post" action="/briefings/7/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
-      <form method="post" action="/briefings/7/include-ambiguous"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="include" type="submit">애매 발언 모두 포함</button></form>
+      <form method="post" action="/briefings/7/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
+      <form method="post" action="/briefings/7/include-ambiguous"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">애매 발언 모두 포함</button></form>
       
-      <form method="post" action="/briefings/7/approve"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="primary" type="submit">승인</button></form>
+      <form method="post" action="/briefings/7/approve"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="primary" type="submit">승인</button></form>
       
     </div>
     <div class="hint">제외해도 삭제되지 않으며 다시 포함할 수 있습니다</div>
@@ -263,7 +269,7 @@
         <span class="txt"><span class="date">2023-12-11 사전보고회</span> <span class="agenda">2024년 경영계획(안)</span><br>AI 인프라 비중을 늘린다고 했는데 기술 변화 속도를 감안한 심사 기준이…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/176/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/176/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -272,7 +278,7 @@
         <span class="txt"><span class="date">2023-12-11 사전보고회</span> <span class="agenda">2024년 경영계획(안)</span><br>5년이면 GPU 두 세대가 바뀌는 기간이라 설비 잔존가치 가정을 따로 봐…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/177/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/177/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -281,7 +287,7 @@
         <span class="txt"><span class="date">2024-01-18 이사회</span> <span class="agenda">AI 투자 포트폴리오 전략 보고</span><br>인프라는 GPU 세대 교체 주기가 짧아 회수 기간 가정을 신중히 잡아야 …</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/178/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/178/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -290,7 +296,7 @@
         <span class="txt"><span class="date">2024-02-19 사전보고회</span> <span class="agenda">AI 데이터센터 사업 검토 보고</span><br>평택 부지 전력 공급 용량은 확정되었는가? 데이터센터 사업의 핵심은 전력…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/179/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/179/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -299,7 +305,7 @@
         <span class="txt"><span class="date">2024-02-22 이사회</span> <span class="agenda">AI 데이터센터 사업 검토 보고</span><br>수랭식 냉각을 처음부터 반영하지 않으면 차세대 GPU 수용이 어려움</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/180/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/180/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -308,7 +314,7 @@
         <span class="txt"><span class="date">2024-04-15 사전보고회</span> <span class="agenda">평택 AI 데이터센터 1단계 투자(안)</span><br>1단계 랙 밀도 설계가 차세대 GPU 기준에 맞는지 확인 필요함</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/181/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/181/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -317,7 +323,7 @@
         <span class="txt"><span class="date">2024-04-18 이사회</span> <span class="agenda">아스트라랩 시리즈B 투자(안)</span><br>학습용 GPU 확보 계획이 없으면 성장 속도가 제한될 것임</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/182/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/182/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -326,7 +332,7 @@
         <span class="txt"><span class="date">2024-09-26 이사회</span> <span class="agenda">평택 AI 데이터센터 진행 보고</span><br>수랭식 냉각 구역 비율을 30%에서 50%로 늘리는 것을 검토 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/183/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/183/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -335,7 +341,7 @@
         <span class="txt"><span class="date">2024-10-21 사전보고회</span> <span class="agenda">GPU 선구매 계약(안)</span><br>차세대 GPU가 1년 안에 나오는데 현 세대를 대량 선구매하면 진부화 위…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/184/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/184/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -344,7 +350,7 @@
         <span class="txt"><span class="date">2024-10-24 이사회</span> <span class="agenda">GPU 선구매 계약(안)</span><br>나머지 60%는 차세대 제품 출시 일정을 보고 결정하길 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/185/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/185/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -353,7 +359,7 @@
         <span class="txt"><span class="date">2024-12-09 사전보고회</span> <span class="agenda">2025년 경영계획(안)</span><br>데이터센터 가동 초기 고객 확보 계획이 구체적인가?</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/186/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/186/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -362,7 +368,7 @@
         <span class="txt"><span class="date">2024-12-09 사전보고회</span> <span class="agenda">2025년 경영계획(안)</span><br>포트폴리오사 위주의 고객 구성은 수요가 한쪽에 몰리는 위험이 있음</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/187/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/187/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -371,7 +377,7 @@
         <span class="txt"><span class="date">2025-03-10 사전보고회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>운영사가 GPU 클러스터 운영 경험이 있는지가 계약 조건보다 중요함</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/188/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/188/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -380,7 +386,7 @@
         <span class="txt"><span class="date">2025-08-18 사전보고회</span> <span class="agenda">평택 AI 데이터센터 공정 지연 및 전력 수급 현황 보고</span><br>작년부터 전력이 핵심이라고 말씀드렸는데 2단계 전력 확보 협의는 어떻게 …</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/189/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/189/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -389,7 +395,7 @@
         <span class="txt"><span class="date">2025-08-18 사전보고회</span> <span class="agenda">평택 AI 데이터센터 공정 지연 및 전력 수급 현황 보고</span><br>자가 발전이나 다른 부지 대안도 함께 검토해야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/190/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/190/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -398,7 +404,7 @@
         <span class="txt"><span class="date">2025-09-18 이사회</span> <span class="agenda">GPU 확보 방식(리스·구매) 검토 보고</span><br>작년 선구매 때 우려한 대로 차세대 제품이 나와 현 세대 가격이 30% …</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/191/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/191/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -407,7 +413,7 @@
         <span class="txt"><span class="date">2025-09-18 이사회</span> <span class="agenda">GPU 확보 방식(리스·구매) 검토 보고</span><br>리스는 진부화 위험을 줄이지만 장기적으로 비용이 더 들 수 있어 비교가 …</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/192/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/192/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -416,7 +422,7 @@
         <span class="txt"><span class="date">2025-11-13 이사회</span> <span class="agenda">2025년 3/4분기 사후 보고사항</span><br>초기 가동 단계에서 냉각 설비 안정성 점검 결과도 함께 보고해 주기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/193/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/193/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -425,7 +431,7 @@
         <span class="txt"><span class="date">2025-12-08 사전보고회</span> <span class="agenda">2026년 경영계획(안)</span><br>데이터센터 2단계 검토 비용이 계획에 들어 있는데 전력 문제는 해결 전망…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/194/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/194/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -434,7 +440,7 @@
         <span class="txt"><span class="date">2026-02-04 이사회</span> <span class="agenda">제13기 재무제표(안)</span><br>GPU 서버는 실제 교체 주기가 4년 안팎이라 5년은 길 수 있음</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/195/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/195/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -443,7 +449,7 @@
         <span class="txt"><span class="date">2026-02-16 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 증설 검토 보고</span><br>2단계 전력 문제의 해법으로 자가 발전과 인근 부지 중 어느 쪽이 유력한…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/196/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/196/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -452,7 +458,7 @@
         <span class="txt"><span class="date">2026-02-16 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 증설 검토 보고</span><br>차세대 GPU는 랙당 전력이 120kW 이상이라 1단계 설계 기준으로는 …</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/197/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/197/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -461,7 +467,7 @@
         <span class="txt"><span class="date">2026-04-16 이사회</span> <span class="agenda">평택 AI 데이터센터 인근 부지 매입 결과 보고</span><br>인근 부지 30MW 확보가 확정되었는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/198/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/198/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -470,7 +476,7 @@
         <span class="txt"><span class="date">2026-07-06 사전보고회</span> <span class="agenda">평택 AI 데이터센터 2단계 투자(안)</span><br>2단계 장비가 3년 안에 다시 구형이 될 수 있어 진부화 위험 대책이 필…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/199/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/199/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -479,7 +485,7 @@
         <span class="txt"><span class="date">2026-07-23 이사회</span> <span class="agenda">2026년 2/4분기 사후 보고사항</span><br>2분기 데이터센터 장애 1건의 원인과 재발 방지 대책은?</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/200/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/200/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -488,7 +494,7 @@
         <span class="txt"><span class="date">2026-08-17 사전보고회</span> <span class="agenda">소버린 AI 컨소시엄 참여 검토 보고</span><br>정부 주도 컨소시엄은 기술 목표보다 일정에 쫓기는 경우가 많아 참여 범위…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/201/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/201/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -497,7 +503,7 @@
         <span class="txt"><span class="date">2026-08-20 이사회</span> <span class="agenda">소버린 AI 컨소시엄 참여 검토 보고</span><br>2단계 용량 일부를 컨소시엄에 배정하면 민간 고객 수요와 충돌할 수 있음</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/202/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/202/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -506,7 +512,7 @@
         <span class="txt"><span class="date">2026-10-22 이사회</span> <span class="agenda">2027년 중장기 전략 방향 보고</span><br>인프라 사업은 기술 교체 주기를 감안해 3년마다 전략을 다시 점검해야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/203/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/203/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -522,7 +528,7 @@
         <span class="txt"><span class="date">2024-09-05 이사회</span> <span class="agenda">홍콩 투자법인 1호 투자 사전 검토 보고</span><br>기술 실사에서 학습 데이터 출처가 적법한지도 확인해야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/204/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/204/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -538,7 +544,7 @@
         <span class="txt"><span class="date">2023-11-16 이사회</span> <span class="agenda">정보보호 점검 결과 보고</span><br>포트폴리오사 데이터를 받아 보는 실사 과정의 보안 기준은?</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/205/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/205/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -547,7 +553,7 @@
         <span class="txt"><span class="date">2023-11-16 이사회</span> <span class="agenda">정보보호 점검 결과 보고</span><br>열람 기록을 남기고 실사 종료 후 파기 여부까지 확인해 주기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/206/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/206/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -556,7 +562,7 @@
         <span class="txt"><span class="date">2024-06-20 이사회</span> <span class="agenda">사이버 보안 체계 점검 보고</span><br>생성형 AI 사용 시 내부 자료 유출을 막는 가이드가 있는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/207/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/207/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -565,7 +571,7 @@
         <span class="txt"><span class="date">2024-06-20 이사회</span> <span class="agenda">사이버 보안 체계 점검 보고</span><br>지침만으로는 부족하니 사내 전용 AI 환경을 마련하는 것이 좋겠음</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/208/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/208/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -574,7 +580,7 @@
         <span class="txt"><span class="date">2025-05-22 이사회</span> <span class="agenda">정보보호 투자 계획 보고</span><br>작년에 제안한 사내 전용 AI 환경 구축은 이번 계획에 들어 있는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/209/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/209/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -583,7 +589,7 @@
         <span class="txt"><span class="date">2026-06-18 이사회</span> <span class="agenda">정보보호 체계 고도화 보고</span><br>데이터센터 고객 데이터를 다루게 되면서 보안 인증은 어느 수준까지 받았는…</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/210/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/210/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -592,7 +598,7 @@
         <span class="txt"><span class="date">2026-06-18 이사회</span> <span class="agenda">정보보호 체계 고도화 보고</span><br>고객별 데이터 분리 수준도 점검 항목에 넣어 주기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/7/items/211/exclude"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/7/items/211/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -600,7 +606,7 @@
     
     
     
-    <div class="actions"><form method="post" action="/briefings/7/approve"><input type="hidden" name="token" value="2026-11-03T12:57:54"><button class="primary" type="submit">승인</button></form></div>
+    <div class="actions"><form method="post" action="/briefings/7/approve"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="primary" type="submit">승인</button></form></div>
     
   </div>
   </div>

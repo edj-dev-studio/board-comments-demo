@@ -40,6 +40,7 @@
   .muted { color: var(--muted); }
   .filter { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; font-size: 14px; color: var(--sub); }
   .filter label { display: flex; gap: 10px; align-items: center; }
+  .filter + .agendas { margin: -8px 0 18px; padding-left: 22px; font-size: 14px; line-height: 1.7; }
 
   .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; white-space: nowrap; }
   .badge.draft { background: #eee; color: #555; }
@@ -132,6 +133,11 @@
   </label>
   <button type="submit">보기</button>
 </form>
+
+<ol class="agendas">
+  <li>2027년 경영계획(안)</li><li>메디뉴런 잔여 지분 처리(안)</li><li>세온클라우드 운영위탁 계약 갱신(안)</li>
+</ol>
+
 <table class="list">
   <thead>
     <tr><th>이사</th><th>구분</th><th class="num">발언(포함 / 전체)</th><th>상태</th><th>이메일</th><th>최종 발송현황</th></tr>
@@ -245,10 +251,10 @@
   <div class="card box remarks">
     
     <div class="bar">
-      <form method="post" action="/briefings/12/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
-      <form method="post" action="/briefings/12/include-ambiguous"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="include" type="submit">애매 발언 모두 포함</button></form>
+      <form method="post" action="/briefings/12/exclude-ambiguous"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">애매 발언 모두 제외</button></form>
+      <form method="post" action="/briefings/12/include-ambiguous"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="include" type="submit">애매 발언 모두 포함</button></form>
       
-      <form method="post" action="/briefings/12/approve"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="primary" type="submit">승인</button></form>
+      <form method="post" action="/briefings/12/approve"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="primary" type="submit">승인</button></form>
       
     </div>
     <div class="hint">제외해도 삭제되지 않으며 다시 포함할 수 있습니다</div>
@@ -263,7 +269,7 @@
         <span class="txt"><span class="date">2023-12-11 사전보고회</span> <span class="agenda">2024년 경영계획(안)</span><br>신규 투자 3,000억 계획인데 자금 조달 구성은 어떻게 되는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/254/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/254/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -272,7 +278,7 @@
         <span class="txt"><span class="date">2023-12-11 사전보고회</span> <span class="agenda">2024년 경영계획(안)</span><br>회수 자금 800억은 시장 상황에 따라 변동이 크므로 보수적 시나리오도 …</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/255/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/255/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -281,7 +287,7 @@
         <span class="txt"><span class="date">2023-12-14 이사회</span> <span class="agenda">2024년 경영계획(안)</span><br>사전보고회에서 요청한 회수 자금 보수적 시나리오가 반영되었는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/256/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/256/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -290,7 +296,7 @@
         <span class="txt"><span class="date">2023-12-14 이사회</span> <span class="agenda">2024년 경영계획(안)</span><br>2단계로 나눌 때 어느 시점에 판단하는지 기준일을 정해 두기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/257/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/257/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -299,7 +305,7 @@
         <span class="txt"><span class="date">2023-12-14 이사회</span> <span class="agenda">2024년 전사 KPI(안)</span><br>투자 수익률 KPI가 실현 기준인지 평가 기준인지 명확히 해야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/258/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/258/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -308,7 +314,7 @@
         <span class="txt"><span class="date">2024-12-09 사전보고회</span> <span class="agenda">2025년 경영계획(안)</span><br>데이터센터 매출이 하반기부터 잡혀 있는데 가동 시점이 늦어지면 영향은?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/259/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/259/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -317,7 +323,7 @@
         <span class="txt"><span class="date">2024-12-12 이사회</span> <span class="agenda">2025년 경영계획(안)</span><br>가동 지연 시 매출 120억 감소 영향을 반영한 하방 계획도 함께 관리 …</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/260/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/260/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -326,7 +332,7 @@
         <span class="txt"><span class="date">2024-12-12 이사회</span> <span class="agenda">2025년 전사 KPI(안)</span><br>실현 수익 지표 목표 450억은 올해 실적 대비 25% 높은데 근거는?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/261/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/261/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -335,7 +341,7 @@
         <span class="txt"><span class="date">2024-12-12 이사회</span> <span class="agenda">2025년 전사 KPI(안)</span><br>회수 예정 건은 늦어질 수 있어 목표를 범위로 두는 방식이 나음</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/262/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/262/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -344,7 +350,7 @@
         <span class="txt"><span class="date">2025-07-24 이사회</span> <span class="agenda">2025년 상반기 결산 보고</span><br>상반기 실현이익이 연간 목표의 35%에 그쳐 하반기 부담이 큼</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/263/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/263/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -353,7 +359,7 @@
         <span class="txt"><span class="date">2025-12-08 사전보고회</span> <span class="agenda">2026년 경영계획(안)</span><br>2026년 실현이익 목표 520억 중 메디뉴런 지분 매각 비중이 얼마인가…</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/264/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/264/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -362,7 +368,7 @@
         <span class="txt"><span class="date">2025-12-08 사전보고회</span> <span class="agenda">2026년 경영계획(안)</span><br>한 건에 목표의 절반 가까이 의존하는 구조는 위험하니 대안 계획이 필요함</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/265/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/265/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -371,7 +377,7 @@
         <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 경영계획(안)</span><br>사전보고회에서 지적한 메디뉴런 의존도에 대한 대안 계획이 반영되었는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/266/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/266/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -380,7 +386,7 @@
         <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 전사 KPI(안)</span><br>데이터센터 가동률 목표 75%는 1단계 첫해로서 높은 편임</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/267/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/267/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -389,7 +395,7 @@
         <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 전사 KPI(안)</span><br>사전 계약이 실제 사용으로 이어지는 비율도 관리 지표로 두기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/268/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/268/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -398,7 +404,7 @@
         <span class="txt"><span class="date">2026-07-23 이사회</span> <span class="agenda">2026년 상반기 결산 보고</span><br>상반기 실현이익이 연간 목표의 58%로 작년보다 개선되었음</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/269/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/269/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -407,7 +413,7 @@
         <span class="txt"><span class="date">2026-11-05 이사회</span> <span class="agenda">2026년 3/4분기 사후 보고사항</span><br>3분기 누적 실현이익이 연간 목표의 81%로 올해는 목표 달성이 가능해 …</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/270/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/270/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -423,7 +429,7 @@
         <span class="txt"><span class="date">2024-08-19 사전보고회</span> <span class="agenda">메디뉴런 추가 투자(안)</span><br>추가 투자 200억의 IRR 18%는 2026년 IPO를 가정한 것인데 …</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/271/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/271/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -432,7 +438,7 @@
         <span class="txt"><span class="date">2024-08-22 이사회</span> <span class="agenda">메디뉴런 추가 투자(안)</span><br>IPO 지연 시에도 IRR 13%면 수용 가능하다고 봄. 다만 가정 변동…</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/272/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/272/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -441,7 +447,7 @@
         <span class="txt"><span class="date">2025-06-16 사전보고회</span> <span class="agenda">메디뉴런 IPO 준비 현황 보고</span><br>상장 예정 기업가치 4,000억 기준이면 우리 지분 가치와 IRR은 얼마…</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/273/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/273/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -450,7 +456,7 @@
         <span class="txt"><span class="date">2025-06-16 사전보고회</span> <span class="agenda">메디뉴런 IPO 준비 현황 보고</span><br>공모가가 20% 낮아지는 경우의 IRR도 보여 주기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/274/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/274/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -459,7 +465,7 @@
         <span class="txt"><span class="date">2025-06-19 이사회</span> <span class="agenda">메디뉴런 IPO 준비 현황 보고</span><br>사전보고회에서 요청한 공모가 20% 하락 시 IRR은?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/275/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/275/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -468,7 +474,7 @@
         <span class="txt"><span class="date">2025-06-19 이사회</span> <span class="agenda">메디뉴런 IPO 준비 현황 보고</span><br>상장 후 보유 지분의 회계 처리 변경 영향도 미리 검토 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/276/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/276/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -477,7 +483,7 @@
         <span class="txt"><span class="date">2025-07-24 이사회</span> <span class="agenda">2025년 상반기 결산 보고</span><br>상장 일정이 밀릴 경우의 대안도 미리 준비해 두기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/277/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/277/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -486,7 +492,7 @@
         <span class="txt"><span class="date">2025-12-08 사전보고회</span> <span class="agenda">2026년 경영계획(안)</span><br>2026년 실현이익 목표 520억 중 메디뉴런 지분 매각 비중이 얼마인가…</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/278/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/278/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -495,7 +501,7 @@
         <span class="txt"><span class="date">2025-12-08 사전보고회</span> <span class="agenda">2026년 경영계획(안)</span><br>한 건에 목표의 절반 가까이 의존하는 구조는 위험하니 대안 계획이 필요함</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/279/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/279/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -504,7 +510,7 @@
         <span class="txt"><span class="date">2025-12-08 사전보고회</span> <span class="agenda">메디뉴런 지분 일부 매각(안)</span><br>상장 후 주가가 공모가 대비 25% 올랐는데 지금 매각하면 IRR은 얼마…</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/280/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/280/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -513,7 +519,7 @@
         <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">2026년 경영계획(안)</span><br>사전보고회에서 지적한 메디뉴런 의존도에 대한 대안 계획이 반영되었는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/281/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/281/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -522,7 +528,7 @@
         <span class="txt"><span class="date">2025-12-11 이사회</span> <span class="agenda">메디뉴런 지분 일부 매각(안)</span><br>사전보고회 때 IRR 27%는 좋은 결과지만 남은 70%의 처리 기준도 …</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/282/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/282/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -531,7 +537,7 @@
         <span class="txt"><span class="date">2026-01-15 이사회</span> <span class="agenda">2025년 4/4분기 사후 보고사항</span><br>4분기 메디뉴런 매각이익 170억이 반영되었는데 세후 기준 금액은?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/283/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/283/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -540,7 +546,7 @@
         <span class="txt"><span class="date">2026-04-16 이사회</span> <span class="agenda">메디뉴런 잔여 지분 처리 방향 보고</span><br>잔여 지분 70%의 현재 가치와 단계별 매각 시 기대 IRR은?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/284/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/284/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -549,7 +555,7 @@
         <span class="txt"><span class="date">2026-07-23 이사회</span> <span class="agenda">2026년 상반기 결산 보고</span><br>메디뉴런 2차 매각 시기는 주가 흐름에 따라 유연하게 가져가길 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/285/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/285/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -565,7 +571,7 @@
         <span class="txt"><span class="date">2024-03-11 사전보고회</span> <span class="agenda">세온클라우드 자금 대여(안)</span><br>대여금 300억은 자기자본의 6% 수준인데 담보는 있는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/286/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/286/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -574,7 +580,7 @@
         <span class="txt"><span class="date">2024-03-11 사전보고회</span> <span class="agenda">세온클라우드 자금 대여(안)</span><br>장비는 가치 하락이 빨라 담보 인정 비율을 보수적으로 잡아야 함</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/287/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/287/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -583,7 +589,7 @@
         <span class="txt"><span class="date">2024-03-14 이사회</span> <span class="agenda">세온클라우드 자금 대여(안)</span><br>만기 1년인데 연장할 때는 별도로 이사회 승인을 받도록 해 주기 바람</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/288/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/288/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -592,7 +598,7 @@
         <span class="txt"><span class="date">2025-03-10 사전보고회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>5년 계약에 매년 수수료 3% 인상 조건이면 총액이 얼마가 되는가?</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/289/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/289/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -601,7 +607,7 @@
         <span class="txt"><span class="date">2025-03-13 이사회</span> <span class="agenda">평택 AI 데이터센터 운영위탁 세온클라우드 거래(안)</span><br>계약 기간 중 수수료 재협상 조건을 넣어 두는 것이 좋겠음</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/290/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/290/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -610,7 +616,7 @@
         <span class="txt"><span class="date">2025-03-13 이사회</span> <span class="agenda">세온클라우드 자금 대여 만기 연장(안)</span><br>작년 대여금 300억 만기 연장 시 이사회 승인을 받기로 했는데 이번 연…</span>
         
         
-        <form class="item" method="post" action="/briefings/12/items/291/exclude"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="exclude" type="submit">제외</button></form>
+        <form class="item" method="post" action="/briefings/12/items/291/exclude"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="exclude" type="submit">제외</button></form>
         
       </li>
       
@@ -618,7 +624,7 @@
     
     
     
-    <div class="actions"><form method="post" action="/briefings/12/approve"><input type="hidden" name="token" value="2026-11-03T16:00:24"><button class="primary" type="submit">승인</button></form></div>
+    <div class="actions"><form method="post" action="/briefings/12/approve"><input type="hidden" name="token" value="2026-11-04T13:03:59"><button class="primary" type="submit">승인</button></form></div>
     
   </div>
   </div>
